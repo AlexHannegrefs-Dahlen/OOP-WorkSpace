@@ -1,0 +1,9 @@
+package dahlen.alex.pizza;
+
+import java.util.ArrayList;
+
+public class Pizza {
+	private ArrayList<String> toppings;
+	private CrustType crust;
+	private boolean cooked;
+}

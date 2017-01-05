@@ -1,0 +1,52 @@
+package dahlen.alex.pizza;
+
+import java.util.ArrayList;
+/**
+ * 
+ * @author Alex
+ *
+ */
+public class Pizza {
+	private ArrayList<String> toppings;
+	private CrustType crust;
+	private boolean cooked;
+	
+	/**
+	 * 
+	 * @return the toppings
+	 */
+	public ArrayList<String> getToppings() {
+		return toppings;
+	}
+	/**
+	 * @param toppings the toppings to set
+	 */
+	public void setToppings(ArrayList<String> toppings) {
+		this.toppings = toppings;
+	}
+	/**
+	 * @return the crust
+	 */
+	public CrustType getCrust() {
+		return crust;
+	}
+	/**
+	 * @param crust the crust to set
+	 */
+	public void setCrust(CrustType crust) {
+		this.crust = crust;
+	}
+	/**
+	 * @return the cooked
+	 */
+	public boolean isCooked() {
+		return cooked;
+	}
+	/**
+	 * @param cooked the cooked to set
+	 */
+	public void setCooked(boolean cooked) {
+		this.cooked = cooked;
+	}
+	
+}

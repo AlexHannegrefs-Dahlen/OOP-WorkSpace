@@ -1,0 +1,41 @@
+package com.hoglezoo.animals;
+
+/**
+ * 
+ * @author Alex
+ *
+ */
+public class Safari {
+	private boolean groundDwelling;
+	private int IQ;
+
+	/**
+	 * @return the groundDwelling
+	 */
+	public boolean isGroundDwelling() {
+		return groundDwelling;
+	}
+
+	/**
+	 * @param groundDwelling
+	 *            the groundDwelling to set
+	 */
+	public void setGroundDwelling(boolean groundDwelling) {
+		this.groundDwelling = groundDwelling;
+	}
+
+	/**
+	 * @return the iQ
+	 */
+	public int getIQ() {
+		return IQ;
+	}
+
+	/**
+	 * @param iQ
+	 *            the iQ to set
+	 */
+	public void setIQ(int iQ) {
+		IQ = iQ;
+	}
+}

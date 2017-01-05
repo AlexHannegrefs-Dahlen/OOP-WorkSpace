@@ -1,0 +1,66 @@
+package com.hoglezoo.animals;
+
+/**
+ * 
+ * @author Alex
+ *
+ */
+public class Safari {
+	private boolean groundDwelling;
+	private int IQ;
+	private String speak;
+	
+	public Safari(){
+		
+	}
+	
+	public Safari(boolean groundDwelling, int IQ, String speak){
+		this.setGroundDwelling(groundDwelling);
+		this.setIQ(IQ);
+		this.setSpeak(speak);
+	}
+
+	/**
+	 * @return the speak
+	 */
+	public String getSpeak() {
+		return speak;
+	}
+
+	/**
+	 * @param speak the speak to set
+	 */
+	public void setSpeak(String speak) {
+		this.speak = speak;
+	}
+
+	/**
+	 * @return the groundDwelling
+	 */
+	public boolean isGroundDwelling() {
+		return groundDwelling;
+	}
+
+	/**
+	 * @param groundDwelling
+	 *            the groundDwelling to set
+	 */
+	public void setGroundDwelling(boolean groundDwelling) {
+		this.groundDwelling = groundDwelling;
+	}
+
+	/**
+	 * @return the iQ
+	 */
+	public int getIQ() {
+		return IQ;
+	}
+
+	/**
+	 * @param iQ
+	 *            the iQ to set
+	 */
+	public void setIQ(int iQ) {
+		IQ = iQ;
+	}
+}

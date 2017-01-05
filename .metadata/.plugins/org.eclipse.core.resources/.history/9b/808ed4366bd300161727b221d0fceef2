@@ -1,0 +1,5 @@
+package com.neumont.csc150.airplace;
+
+public enum Rank {
+
+}

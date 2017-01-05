@@ -1,0 +1,10 @@
+package com.neumont.csc150.airplace;
+
+public class AirPlace {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

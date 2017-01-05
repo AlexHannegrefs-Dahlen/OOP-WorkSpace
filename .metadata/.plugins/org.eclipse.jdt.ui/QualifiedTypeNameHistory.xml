@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="dahlen.alex.pizza.Pizza"/>
+<fullyQualifiedTypeName name="dahlen.alex.pizza.CrustType"/>
+<fullyQualifiedTypeName name="com.hoglezoo.animals.ModesOfTravel"/>
+<fullyQualifiedTypeName name="java.lang.Class"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.neumont.csc150.airplace.Passengers"/>
+<fullyQualifiedTypeName name="com.neumont.csc150.airplace.Pilot"/>
+<fullyQualifiedTypeName name="com.neumont.csc150.airplace.AirPlane"/>
+</qualifiedTypeNameHistroy>

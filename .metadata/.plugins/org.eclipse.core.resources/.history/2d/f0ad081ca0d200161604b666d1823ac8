@@ -1,0 +1,5 @@
+package dahlen.alex.pizza;
+
+public enum CrustType {
+
+}

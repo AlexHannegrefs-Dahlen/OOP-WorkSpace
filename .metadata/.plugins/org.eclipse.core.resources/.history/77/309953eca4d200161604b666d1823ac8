@@ -1,0 +1,10 @@
+package dahlen.alex.pizza;
+
+public class Pizzeria {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

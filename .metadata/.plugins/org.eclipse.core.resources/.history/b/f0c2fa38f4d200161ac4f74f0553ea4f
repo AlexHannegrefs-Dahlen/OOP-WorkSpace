@@ -1,0 +1,76 @@
+package com.hoglezoo.animals;
+
+/**
+ * 
+ * @author Alex
+ *
+ */
+public class Arctic {
+	private double swimDuration;
+	private double heatRetentionFactor;
+	private String speak;
+
+	/**
+	 * 
+	 */
+	public Arctic() {
+		
+	}
+	/**
+	 * 
+	 * @param swimDuration
+	 * @param heatRetentionFactor
+	 * @param speak
+	 */
+	public Arctic(double swimDuration, double heatRetentionFactor, String speak) {
+		this.setSwimDuration(swimDuration);
+		this.setHeatRetentionFactor(heatRetentionFactor);
+		this.setSpeak(speak);
+	}
+	
+	/**
+	 * @return the speak
+	 */
+	public String getSpeak() {
+		return speak;
+	}
+
+	/**
+	 * @param speak
+	 *            the speak to set
+	 */
+	public void setSpeak(String speak) {
+		this.speak = speak;
+	}
+
+	/**
+	 * @return the swimDuration
+	 */
+	public double getSwimDuration() {
+		return swimDuration;
+	}
+
+	/**
+	 * @param swimDuration
+	 *            the swimDuration to set
+	 */
+	public void setSwimDuration(double swimDuration) {
+		this.swimDuration = swimDuration;
+	}
+
+	/**
+	 * @return the heatRetentionFactor
+	 */
+	public double getHeatRetentionFactor() {
+		return heatRetentionFactor;
+	}
+
+	/**
+	 * @param heatRetentionFactor
+	 *            the heatRetentionFactor to set
+	 */
+	public void setHeatRetentionFactor(double heatRetentionFactor) {
+		this.heatRetentionFactor = heatRetentionFactor;
+	}
+
+}

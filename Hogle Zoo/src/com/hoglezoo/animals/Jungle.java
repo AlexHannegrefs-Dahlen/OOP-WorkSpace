@@ -1,0 +1,85 @@
+package com.hoglezoo.animals;
+
+import java.util.Random;
+
+/**
+ * 
+ * @author Alex
+ *
+ */
+public class Jungle {
+	private boolean groundDwelling;
+	private int IQ;
+	private String speak;
+	private Random gen = new Random();
+	
+	public Jungle(){
+		
+	}
+	
+	public Jungle(boolean groundDwelling, int IQ, String speak){
+		this.setGroundDwelling(groundDwelling);
+		this.setIQ(IQ);
+		this.setSpeak(speak);
+	}
+
+	/**
+	 * 
+	 * @param obj
+	 */
+	public void fight(Object obj){
+		
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static String getType(){
+		return "Jungle";
+	}
+	
+	/**
+	 * @return the speak
+	 */
+	public String getSpeak() {
+		return speak;
+	}
+
+	/**
+	 * @param speak the speak to set
+	 */
+	public void setSpeak(String speak) {
+		this.speak = speak;
+	}
+
+	/**
+	 * @return the groundDwelling
+	 */
+	public boolean isGroundDwelling() {
+		return groundDwelling;
+	}
+
+	/**
+	 * @param groundDwelling
+	 *            the groundDwelling to set
+	 */
+	public void setGroundDwelling(boolean groundDwelling) {
+		this.groundDwelling = groundDwelling;
+	}
+
+	/**
+	 * @return the iQ
+	 */
+	public int getIQ() {
+		return IQ;
+	}
+
+	/**
+	 * @param iQ
+	 *            the iQ to set
+	 */
+	public void setIQ(int iQ) {
+		IQ = iQ;
+	}
+}
