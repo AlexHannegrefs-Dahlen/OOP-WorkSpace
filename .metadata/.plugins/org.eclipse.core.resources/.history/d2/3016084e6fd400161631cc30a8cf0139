@@ -1,0 +1,155 @@
+package com.hoglezoo.animals;
+
+import java.util.Random;
+
+/**
+ * 
+ * @author Alex
+ *
+ */
+public class Jungle {
+	private String name;
+	private boolean groundDwelling;
+	private int IQ;
+	private String speak;
+
+	/**
+	 * 
+	 */
+	public Jungle() {
+
+	}
+
+	/**
+	 * 
+	 * @param groundDwelling
+	 * @param IQ
+	 * @param speak
+	 */
+	public Jungle(boolean groundDwelling, int IQ, String speak) {
+		this.setGroundDwelling(groundDwelling);
+		this.setIQ(IQ);
+		this.setSpeak(speak);
+	}
+
+	/**
+	 * Generates either 0 or 1
+	 * 
+	 * @return the number generated
+	 */
+	public int numberGen() {
+		Random gen = new Random();
+		return gen.nextInt(2);
+	}
+
+	/**
+	 * 
+	 * @param Ocean
+	 *            object to fight Jungle
+	 */
+	public void fight(Ocean fighting) {
+		if (numberGen() == 1) {
+			System.out.println(fighting.toString() + " wins");
+		}
+		System.out.println(this.toString() + " wins");
+	}
+
+	/**
+	 * 
+	 * @param Arctic
+	 *            object to fight Jungle
+	 */
+	public void fight(Arctic fighting) {
+		if (numberGen() == 1) {
+			System.out.println(fighting.getName() + " wins");
+		}
+		System.out.println(this.getName() + " wins");
+	}
+
+	/**
+	 * 
+	 * @param Safari
+	 *            object to fight Jungle
+	 */
+	public void fight(Safari fighting) {
+		if (numberGen() == 1) {
+			System.out.println(fighting.getName() + " wins");
+		}
+		System.out.println(this.getName() + " wins");
+	}
+
+	/**
+	 * 
+	 * @param Jungle
+	 *            object to fight Jungle
+	 */
+	public void fight(Jungle fighting) {
+		if (numberGen() == 1) {
+			System.out.println(fighting.getName() + " wins");
+		}
+		System.out.println(this.getName() + " wins");
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * 
+	 * @param name
+	 */
+	public void setName(String name) {
+		if (name == null) {
+			throw new IllegalArgumentException("Name cannot be null");
+		}
+		this.name = name;
+	}
+
+	/**
+	 * @return the speak
+	 */
+	public String getSpeak() {
+		return speak;
+	}
+
+	/**
+	 * @param speak
+	 *            the speak to set
+	 */
+	public void setSpeak(String speak) {
+		this.speak = speak;
+	}
+
+	/**
+	 * @return the groundDwelling
+	 */
+	public boolean isGroundDwelling() {
+		return groundDwelling;
+	}
+
+	/**
+	 * @param groundDwelling
+	 *            the groundDwelling to set
+	 */
+	public void setGroundDwelling(boolean groundDwelling) {
+		this.groundDwelling = groundDwelling;
+	}
+
+	/**
+	 * @return the iQ
+	 */
+	public int getIQ() {
+		return IQ;
+	}
+
+	/**
+	 * @param iQ
+	 *            the iQ to set
+	 */
+	public void setIQ(int iQ) {
+		IQ = iQ;
+	}
+}

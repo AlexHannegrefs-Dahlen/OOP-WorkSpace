@@ -1,0 +1,151 @@
+package com.hoglezoo.animals;
+
+import java.util.Random;
+
+/**
+ * 
+ * @author Alex
+ *
+ */
+public class Safari {
+	private String name;
+	private boolean carnivore;
+	private double travelSpeed;
+	private String speak;
+
+	/**
+	 * 
+	 */
+	public Safari() {
+
+	}
+
+	public Safari(String name, boolean carnivore, double travelSpeed, String speak) {
+		this.setName(name);
+		this.setCarnivore(carnivore);
+		this.setTravelSpeed(travelSpeed);
+		this.setSpeak(speak);
+	}
+
+	/**
+	 * Generates either 0 or 1
+	 * 
+	 * @return the number generated
+	 */
+	public int numberGen() {
+		Random gen = new Random();
+		return gen.nextInt(2);
+	}
+
+	/**
+	 * 
+	 * @param Jungle
+	 *            object to fight Safari
+	 */
+	public void fight(Jungle fighting) {
+		if (numberGen() == 1) {
+			System.out.println(fighting.toString() + " wins");
+		}
+		System.out.println(this.toString() + " wins");
+	}
+
+	/**
+	 * 
+	 * @param Ocean
+	 *            object to fight Safari
+	 */
+	public void fight(Ocean fighting) {
+		if (numberGen() == 1) {
+			System.out.println(fighting.getName() + " wins");
+		}
+		System.out.println(this.getName() + " wins");
+	}
+
+	/**
+	 * 
+	 * @param Arctic
+	 *            object to fight Safari
+	 */
+	public void fight(Arctic fighting) {
+		if (numberGen() == 1) {
+			System.out.println(fighting.getName() + " wins");
+		}
+		System.out.println(this.getName() + " wins");
+	}
+
+	/**
+	 * 
+	 * @param Safari
+	 *            object to fight Safari
+	 */
+	public void fight(Safari fighting) {
+		if (numberGen() == 1) {
+			System.out.println(fighting.getName() + " wins");
+		}
+		System.out.println(this.getName() + " wins");
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * 
+	 * @param name
+	 */
+	public void setName(String name) {
+		if (name == null) {
+			throw new IllegalArgumentException("Name cannot be null");
+		}
+		this.name = name;
+	}
+
+	/**
+	 * @return the speak
+	 */
+	public String getSpeak() {
+		return speak;
+	}
+
+	/**
+	 * @param speak
+	 *            the speak to set
+	 */
+	public void setSpeak(String speak) {
+		this.speak = speak;
+	}
+
+	/**
+	 * @return the carnivore
+	 */
+	public boolean isCarnivore() {
+		return carnivore;
+	}
+
+	/**
+	 * @param carnivore
+	 *            the carnivore to set
+	 */
+	public void setCarnivore(boolean carnivore) {
+		this.carnivore = carnivore;
+	}
+
+	/**
+	 * @return the travelSpeed
+	 */
+	public double getTravelSpeed() {
+		return travelSpeed;
+	}
+
+	/**
+	 * @param travelSpeed
+	 *            the travelSpeed to set
+	 */
+	public void setTravelSpeed(double travelSpeed) {
+		this.travelSpeed = travelSpeed;
+	}
+}

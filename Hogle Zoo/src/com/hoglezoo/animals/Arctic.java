@@ -1,65 +1,41 @@
 package com.hoglezoo.animals;
 
-import java.util.Random;
-
 /**
  * 
  * @author Alex
  *
  */
-public class Arctic {
+public class Arctic extends Animal {
 	private double swimDuration;
 	private double heatRetentionFactor;
-	private String speak;
-	private Random gen = new Random();
 
 	/**
 	 * 
 	 */
 	public Arctic() {
-		
+
 	}
+
 	/**
 	 * 
 	 * @param swimDuration
 	 * @param heatRetentionFactor
 	 * @param speak
 	 */
-	public Arctic(double swimDuration, double heatRetentionFactor, String speak) {
+	public Arctic(String name, double swimDuration, double heatRetentionFactor, String speak) {
+		this.setName(name);
 		this.setSwimDuration(swimDuration);
 		this.setHeatRetentionFactor(heatRetentionFactor);
 		this.setSpeak(speak);
 	}
-	
-	/**
-	 * 
-	 * @param obj
-	 */
-	public void fight(Object obj){
-		
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public static String getType(){
-		return "Arctic";
-	}
-	
-	/**
-	 * @return the speak
-	 */
-	public String getSpeak() {
-		return speak;
-	}
 
 	/**
-	 * @param speak
-	 *            the speak to set
+	 * 
 	 */
-	public void setSpeak(String speak) {
-		this.speak = speak;
+	public boolean equals(Object obj) {
+		Arctic equal = (Arctic) obj;
+		return (this.heatRetentionFactor == equal.heatRetentionFactor && this.swimDuration == equal.swimDuration
+				&& this.speak == equal.speak);
 	}
 
 	/**
@@ -74,6 +50,9 @@ public class Arctic {
 	 *            the swimDuration to set
 	 */
 	public void setSwimDuration(double swimDuration) {
+		if (swimDuration < 0) {
+			throw new IllegalArgumentException("Swim duration cannot be less than zero");
+		}
 		this.swimDuration = swimDuration;
 	}
 
@@ -89,6 +68,9 @@ public class Arctic {
 	 *            the heatRetentionFactor to set
 	 */
 	public void setHeatRetentionFactor(double heatRetentionFactor) {
+		if (heatRetentionFactor < 0) {
+			throw new IllegalArgumentException("Heat retention factor cannot be less than zero");
+		}
 		this.heatRetentionFactor = heatRetentionFactor;
 	}
 

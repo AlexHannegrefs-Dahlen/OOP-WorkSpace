@@ -1,23 +1,29 @@
 package com.hoglezoo.animals;
 
-import java.util.Random;
-
 /**
  * 
  * @author Alex
  *
  */
-public class Jungle {
+public class Jungle extends Animal {
 	private boolean groundDwelling;
 	private int IQ;
-	private String speak;
-	private Random gen = new Random();
-	
-	public Jungle(){
-		
+
+	/**
+	 * 
+	 */
+	public Jungle() {
+
 	}
-	
-	public Jungle(boolean groundDwelling, int IQ, String speak){
+
+	/**
+	 * 
+	 * @param groundDwelling
+	 * @param IQ
+	 * @param speak
+	 */
+	public Jungle(String name, boolean groundDwelling, int IQ, String speak) {
+		this.setName(name);
 		this.setGroundDwelling(groundDwelling);
 		this.setIQ(IQ);
 		this.setSpeak(speak);
@@ -25,32 +31,11 @@ public class Jungle {
 
 	/**
 	 * 
-	 * @param obj
 	 */
-	public void fight(Object obj){
-		
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public static String getType(){
-		return "Jungle";
-	}
-	
-	/**
-	 * @return the speak
-	 */
-	public String getSpeak() {
-		return speak;
-	}
-
-	/**
-	 * @param speak the speak to set
-	 */
-	public void setSpeak(String speak) {
-		this.speak = speak;
+	public boolean equals(Object obj) {
+		Jungle equal = (Jungle) obj;
+		return (this.isGroundDwelling() == equal.isGroundDwelling() && this.getIQ() == equal.getIQ()
+				&& this.getSpeak() == equal.getSpeak());
 	}
 
 	/**
@@ -80,6 +65,9 @@ public class Jungle {
 	 *            the iQ to set
 	 */
 	public void setIQ(int iQ) {
+		if (iQ < 0) {
+			throw new IllegalArgumentException("iQ cannot be less than 0");
+		}
 		IQ = iQ;
 	}
 }

@@ -1,0 +1,88 @@
+package com.hoglezoo.animals;
+
+import java.util.Random;
+
+/**
+ * 
+ * @author Alex
+ *
+ */
+public class Safari {
+	private boolean carnivore;
+	private double travelSpeed;
+	private String speak;
+
+	/**
+	 * 
+	 */
+	public Safari() {
+
+	}
+
+	public Safari(boolean carnivore, double travelSpeed, String speak) {
+		this.setCarnivore(carnivore);
+		this.setTravelSpeed(travelSpeed);
+		this.setSpeak(speak);
+	}
+
+	/**
+	 * 
+	 * @param obj
+	 */
+	public void fight(Object obj) {
+
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static String getType() {
+		return "Safari";
+	}
+
+	/**
+	 * @return the speak
+	 */
+	public String getSpeak() {
+		return speak;
+	}
+
+	/**
+	 * @param speak
+	 *            the speak to set
+	 */
+	public void setSpeak(String speak) {
+		this.speak = speak;
+	}
+
+	/**
+	 * @return the carnivore
+	 */
+	public boolean isCarnivore() {
+		return carnivore;
+	}
+
+	/**
+	 * @param carnivore
+	 *            the carnivore to set
+	 */
+	public void setCarnivore(boolean carnivore) {
+		this.carnivore = carnivore;
+	}
+
+	/**
+	 * @return the travelSpeed
+	 */
+	public double getTravelSpeed() {
+		return travelSpeed;
+	}
+
+	/**
+	 * @param travelSpeed
+	 *            the travelSpeed to set
+	 */
+	public void setTravelSpeed(double travelSpeed) {
+		this.travelSpeed = travelSpeed;
+	}
+}
