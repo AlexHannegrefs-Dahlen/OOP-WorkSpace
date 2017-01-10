@@ -39,6 +39,20 @@ public class Arctic extends Animal {
 	}
 
 	/**
+	 * 
+	 */
+	public void hibernate() {
+		System.out.println(this.getName() + " is hibernating");
+	}
+
+	/**
+	 * 
+	 */
+	public void makeSnowAnimal() {
+		System.out.println(this.getName() + " made a snow animal");
+	}
+
+	/**
 	 * @return the swimDuration
 	 */
 	public double getSwimDuration() {

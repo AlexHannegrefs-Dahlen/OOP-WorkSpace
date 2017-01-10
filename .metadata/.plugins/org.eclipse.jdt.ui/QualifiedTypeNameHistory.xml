@@ -16,4 +16,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="com.hoglezoo.animals.ModeOfTravelInWater"/>
+<fullyQualifiedTypeName name="com.hoglezoo.animals.AnimalType"/>
 </qualifiedTypeNameHistroy>

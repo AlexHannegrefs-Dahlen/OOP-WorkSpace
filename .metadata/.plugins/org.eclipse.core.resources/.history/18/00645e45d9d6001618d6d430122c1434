@@ -1,0 +1,14 @@
+package com.hoglezoo.animals;
+
+public interface AnimalType {
+	String name = null;
+	String speak = null;
+
+	String setName(String name);
+
+	String getName();
+
+	String setSpeak(String speak);
+
+	String getSpeak();
+}

@@ -30,6 +30,20 @@ public class Jungle extends Animal {
 	}
 
 	/**
+	 * Makes jungle jump
+	 */
+	public void jump() {
+		System.out.println(this.name + " jumped.");
+	}
+
+	/**
+	 * 
+	 */
+	public void makeShelter() {
+		System.out.println(this.name + " tore down leaves and make a small shelter");
+	}
+
+	/**
 	 * 
 	 */
 	public boolean equals(Object obj) {

@@ -2,9 +2,28 @@ package com.hoglezoo.animals;
 
 import java.util.Random;
 
-public class Animal {
+public class Animal implements AnimalType {
 	protected String name;
 	protected String speak;
+
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName();
+	}
+
+	/**
+	 * 
+	 */
+	public void eat() {
+		System.out.println(this.name + " has ate.");
+	}
+
+	/**
+	 * 
+	 */
+	public void hide() {
+		System.out.println(this.name + " is hiding.");
+	}
 
 	private int numberGen() {
 		Random gen = new Random();
@@ -81,6 +100,7 @@ public class Animal {
 	/**
 	 * @return the speak
 	 */
+	@Override
 	public String getSpeak() {
 		return speak;
 	}

@@ -7,17 +7,41 @@ package com.hoglezoo.animals;
  */
 public class Ocean extends Animal {
 	private boolean waterBreathing;
-	private ModesOfTravel travelMode;
+	private ModeOfTravelInWater travelMode;
 
+	/**
+	 * 
+	 */
 	public Ocean() {
 
 	}
 
-	public Ocean(String name, boolean waterBreathing, ModesOfTravel travelMode, String speak) {
+	/**
+	 * 
+	 * @param name
+	 * @param waterBreathing
+	 * @param travelMode
+	 * @param speak
+	 */
+	public Ocean(String name, boolean waterBreathing, ModeOfTravelInWater travelMode, String speak) {
 		this.setName(name);
 		this.setWaterBreathing(waterBreathing);
 		this.setTravelMode(travelMode);
 		this.setSpeak(speak);
+	}
+
+	/**
+	 * Makes animal swim
+	 */
+	public void swim() {
+		System.out.println(this.getName() + " is swimming with " + this.getTravelMode());
+	}
+
+	/**
+	 * Animal goes deeper in water
+	 */
+	public void changeDepth() {
+		System.out.println(this.getName() + " went deeper");
 	}
 
 	/**
@@ -47,7 +71,7 @@ public class Ocean extends Animal {
 	/**
 	 * @return the travelMode
 	 */
-	public ModesOfTravel getTravelMode() {
+	public ModeOfTravelInWater getTravelMode() {
 		return travelMode;
 	}
 
@@ -55,7 +79,10 @@ public class Ocean extends Animal {
 	 * @param travelMode
 	 *            the travelMode to set
 	 */
-	public void setTravelMode(ModesOfTravel travelMode) {
+	public void setTravelMode(ModeOfTravelInWater travelMode) {
+		if (travelMode == null) {
+			throw new IllegalArgumentException("travelMode cannot be null");
+		}
 		this.travelMode = travelMode;
 	}
 }

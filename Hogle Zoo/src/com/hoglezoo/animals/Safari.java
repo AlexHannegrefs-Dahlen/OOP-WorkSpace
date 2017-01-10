@@ -33,6 +33,20 @@ public class Safari extends Animal {
 	}
 
 	/**
+	 * 
+	 */
+	public void run() {
+		System.out.println(this.getName() + " ran at " + this.getTravelSpeed() + " m/s");
+	}
+
+	/**
+	 * 
+	 */
+	public void sleep() {
+		System.out.println(this.getName() + " is sleeping.");
+	}
+
+	/**
 	 * @return the carnivore
 	 */
 	public boolean isCarnivore() {
