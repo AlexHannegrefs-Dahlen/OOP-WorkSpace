@@ -13,7 +13,7 @@ public class Jungle extends Animal {
 	 * 
 	 */
 	public Jungle() {
-
+		super();
 	}
 
 	/**
@@ -22,34 +22,24 @@ public class Jungle extends Animal {
 	 * @param IQ
 	 * @param speak
 	 */
-	public Jungle(String name, boolean groundDwelling, int IQ, String speak) {
-		this.setName(name);
+	public Jungle(String name, boolean groundDwelling, int IQ, String speak, String color, int attack) {
+		super(name, color, speak, attack);
 		this.setGroundDwelling(groundDwelling);
 		this.setIQ(IQ);
-		this.setSpeak(speak);
 	}
 
 	/**
 	 * Makes jungle jump
 	 */
 	public void jump() {
-		System.out.println(this.name + " jumped.");
+		System.out.println(super.getName() + " jumped.");
 	}
 
 	/**
 	 * 
 	 */
 	public void makeShelter() {
-		System.out.println(this.name + " tore down leaves and make a small shelter");
-	}
-
-	/**
-	 * 
-	 */
-	public boolean equals(Object obj) {
-		Jungle equal = (Jungle) obj;
-		return (this.isGroundDwelling() == equal.isGroundDwelling() && this.getIQ() == equal.getIQ()
-				&& this.getSpeak() == equal.getSpeak());
+		System.out.println(super.getName() + " tore down leaves and make a small shelter");
 	}
 
 	/**
@@ -84,4 +74,10 @@ public class Jungle extends Animal {
 		}
 		IQ = iQ;
 	}
+
+	@Override
+	public String getSpeak() {
+		return super.speak;
+	}
+
 }

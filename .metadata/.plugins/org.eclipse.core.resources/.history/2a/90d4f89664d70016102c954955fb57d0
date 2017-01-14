@@ -1,0 +1,93 @@
+package edu.neumont.csc150.myClass;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import edu.neumont.csc150.messageinterface.Message;
+
+public class messageMaker implements Message {
+	private String messageDate;
+	private String[] recipients;
+	private File[] attachmentFiles;
+	private String subject;
+	private String msg;
+
+	public messageMaker() {
+
+	}
+
+	public messageMaker(String recipient, File attachmentFile, String subject, String msg) {
+		this.addRecipient(recipient);
+		this.addAttachment(attachmentFile);
+		this.setSubject(subject);
+		this.setMessageBody(msg);
+		this.messageDate = this.getCreatedDate();
+	}
+
+	@Override
+	public void addRecipient(String recipient) {
+		this.recipients[this.recipients.length] = recipient;
+	}
+
+	@Override
+	public void addAttachment(File attachmentFile) {
+		this.attachmentFiles[this.attachmentFiles.length] = attachmentFile;
+	}
+
+	@Override
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	@Override
+	public void setMessageBody(String msg) {
+		this.msg = msg;
+	}
+
+	@Override
+	public String getCreatedDate() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+
+	@Override
+	public String getSender() {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("What is your name?");
+		String name;
+		try {
+			name = in.readLine();
+			return name;
+		} catch (Exception e) {
+			throw new IllegalArgumentException("name must be able to be casted as a string");
+		}
+	}
+
+	@Override
+	public String getSubject() {
+		return this.subject;
+	}
+
+	@Override
+	public String getMessageBody() {
+		return this.msg;
+	}
+
+	@Override
+	public String[] getRecipients() {
+		return this.recipients;
+	}
+
+	@Override
+	public File[] getAttachments() {
+		return this.attachmentFiles;
+	}
+
+}

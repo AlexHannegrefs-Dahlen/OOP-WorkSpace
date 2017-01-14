@@ -1,0 +1,84 @@
+package edu.neumont.csc150.myClass;
+
+import java.io.File;
+
+import edu.neumont.csc150.messageinterface.Message;
+
+public class messageMaker implements Message {
+	private String recipient;
+	private File attachmentFile;
+	private String subject;
+	private String msg;
+
+	public messageMaker() {
+
+	}
+
+	public messageMaker(String recipient, File attachmentFile, String subject, String msg) {
+		this.recipient = recipient;
+		this.attachmentFile = attachmentFile;
+		this.subject = subject;
+		this.msg = msg;
+	}
+
+	@Override
+	public void addRecipient(String recipient) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addAttachment(File attachmentFile) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setSubject(String subject) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setMessageBody(String msg) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String getCreatedDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSender() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSubject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getMessageBody() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getRecipients() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public File[] getAttachments() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

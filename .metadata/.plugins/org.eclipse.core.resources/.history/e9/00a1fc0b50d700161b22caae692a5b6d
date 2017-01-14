@@ -1,0 +1,12 @@
+
+public interface GroceryInterface {
+
+	double getWeight();
+
+	void setWeight();
+
+	double getPrice();
+
+	void setPrice();
+
+}

@@ -13,7 +13,7 @@ public class Arctic extends Animal {
 	 * 
 	 */
 	public Arctic() {
-
+		super();
 	}
 
 	/**
@@ -22,20 +22,11 @@ public class Arctic extends Animal {
 	 * @param heatRetentionFactor
 	 * @param speak
 	 */
-	public Arctic(String name, double swimDuration, double heatRetentionFactor, String speak) {
-		this.setName(name);
+	public Arctic(String name, double swimDuration, double heatRetentionFactor, String speak, String color,
+			int attack) {
+		super(name, color, speak, attack);
 		this.setSwimDuration(swimDuration);
 		this.setHeatRetentionFactor(heatRetentionFactor);
-		this.setSpeak(speak);
-	}
-
-	/**
-	 * 
-	 */
-	public boolean equals(Object obj) {
-		Arctic equal = (Arctic) obj;
-		return (this.heatRetentionFactor == equal.heatRetentionFactor && this.swimDuration == equal.swimDuration
-				&& this.speak == equal.speak);
 	}
 
 	/**
@@ -86,6 +77,11 @@ public class Arctic extends Animal {
 			throw new IllegalArgumentException("Heat retention factor cannot be less than zero");
 		}
 		this.heatRetentionFactor = heatRetentionFactor;
+	}
+
+	@Override
+	public String getSpeak() {
+		return super.speak;
 	}
 
 }

@@ -5,7 +5,7 @@
 		<item value="400" key="height"/>
 	</section>
 	<section name="SelfEncapsulateFieldWizard">
-		<item value="false" key="GenerateJavadoc"/>
+		<item value="true" key="GenerateJavadoc"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="2" key="layout"/>

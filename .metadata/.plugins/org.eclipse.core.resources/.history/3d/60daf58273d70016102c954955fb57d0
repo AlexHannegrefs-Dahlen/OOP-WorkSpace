@@ -1,0 +1,15 @@
+package edu.neumont.csc150.tester;
+
+import edu.neumont.csc150.myClass.messageMaker;
+
+public class messageTester {
+
+	public static void main(String[] args) {
+		messageMaker myMessage = new messageMaker("Alex", "test subject", "test message");
+		myMessage.addRecipient("Them");
+		myMessage.addRecipient("They");
+		myMessage.addAttachment(null);
+
+	}
+
+}

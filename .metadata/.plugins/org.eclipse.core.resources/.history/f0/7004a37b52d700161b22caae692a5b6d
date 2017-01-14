@@ -1,0 +1,16 @@
+package store.grocery.driver;
+
+import store.grocery.Apple;
+import store.grocery.Celery;
+import store.grocery.Orange;
+
+public class Store {
+
+	public static void main(String[] args) {
+		Apple apple = new Apple();
+		Orange orange = new Orange();
+		apple.compareTo(orange);
+		
+	}
+
+}

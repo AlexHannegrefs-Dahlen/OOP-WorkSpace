@@ -1,81 +1,62 @@
 package com.hoglezoo.animals;
 
-import java.util.Random;
-
-public class Animal implements AnimalType {
-	protected String name;
+abstract public class Animal implements AnimalType, Comparable<Animal> {
+	private String name;
 	protected String speak;
+	private String color;
+	private int attack;
+
+	public Animal() {
+
+	}
+
+	public Animal(String name, String color, String speak, int attack) {
+		this.setName(name);
+		this.setColor(color);
+		this.setSpeak(speak);
+		this.setAttack(attack);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Animal)) {
+			throw new IllegalArgumentException("obj must be an instance of animal");
+		}
+		Animal equalling = (Animal) obj;
+		return this.getName().equals(equalling.getName()) && this.getColor().equals(equalling.getColor())
+				&& this.getSpeak().equals(equalling.getSpeak()) && this.getAttack() == equalling.getAttack();
+	}
 
 	@Override
 	public String toString() {
-		return this.getClass().getSimpleName();
+		return "Name: " + this.getName() + ", Speak: " + this.getSpeak() + ", Color: " + this.getColor();
 	}
 
 	/**
 	 * 
 	 */
-	public void eat() {
-		System.out.println(this.name + " has ate.");
+	public String eat() {
+		return this.name + " has ate.";
 	}
 
 	/**
 	 * 
 	 */
-	public void hide() {
-		System.out.println(this.name + " is hiding.");
-	}
-
-	private int numberGen() {
-		Random gen = new Random();
-		return gen.nextInt(2);
+	public String hide() {
+		return this.name + " is hiding.";
 	}
 
 	/**
 	 * 
-	 * @param Jungle
-	 *            object to fight Safari
-	 */
-	public void fight(Jungle fighting) {
-		if (numberGen() == 1) {
-			System.out.println(fighting.getName() + " wins");
-		} else
-			System.out.println(this.getName() + " wins");
-	}
-
-	/**
+	 * @param Anial
+	 *            object to fight another Animal object
 	 * 
-	 * @param Ocean
-	 *            object to fight Safari
 	 */
-	public void fight(Ocean fighting) {
-		if (numberGen() == 1) {
-			System.out.println(fighting.getName() + " wins");
-		} else
-			System.out.println(this.getName() + " wins");
-	}
-
-	/**
-	 * 
-	 * @param Arctic
-	 *            object to fight Safari
-	 */
-	public void fight(Arctic fighting) {
-		if (numberGen() == 1) {
-			System.out.println(fighting.getName() + " wins");
-		} else
-			System.out.println(this.getName() + " wins");
-	}
-
-	/**
-	 * 
-	 * @param Safari
-	 *            object to fight Safari
-	 */
-	public void fight(Safari fighting) {
-		if (numberGen() == 1) {
-			System.out.println(fighting.getName() + " wins");
-		} else
-			System.out.println(this.getName() + " wins");
+	public Animal fight(Animal fighting) {
+		if (this.getAttack() < fighting.getAttack())
+			return fighting;
+		else
+			return this;
 	}
 
 	/**
@@ -100,10 +81,7 @@ public class Animal implements AnimalType {
 	/**
 	 * @return the speak
 	 */
-	@Override
-	public String getSpeak() {
-		return speak;
-	}
+	abstract public String getSpeak();
 
 	/**
 	 * @param speak
@@ -114,5 +92,48 @@ public class Animal implements AnimalType {
 			throw new IllegalArgumentException("Speak cannot be null");
 		}
 		this.speak = speak;
+	}
+
+	/**
+	 * @return the color
+	 */
+	public String getColor() {
+		return color;
+	}
+
+	/**
+	 * @param color
+	 *            the color to set
+	 */
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	/**
+	 * @return the attack
+	 */
+	public int getAttack() {
+		return attack;
+	}
+
+	/**
+	 * @param attack
+	 *            the attack to set
+	 */
+	public void setAttack(int attack) {
+		if (attack < 0) {
+			throw new IllegalArgumentException("attack cannot be less than 0");
+		}
+		this.attack = attack;
+	}
+
+	@Override
+	public int compareTo(Animal arg0) {
+		if (this.getAttack() > arg0.getAttack())
+			return 1;
+		else if (this.getAttack() < arg0.getAttack())
+			return -1;
+		else
+			return 0;
 	}
 }

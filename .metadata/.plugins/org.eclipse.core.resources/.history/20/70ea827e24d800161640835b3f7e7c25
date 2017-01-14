@@ -1,0 +1,93 @@
+package com.hoglezoo.animals;
+
+import java.util.Random;
+
+public class Animal implements AnimalType {
+	protected String name;
+	protected String speak;
+
+	@Override
+	public String toString() {
+		return this.getClass().getSimpleName();
+	}
+
+	/**
+	 * 
+	 */
+	public void eat() {
+		System.out.println(this.name + " has ate.");
+	}
+
+	/**
+	 * 
+	 */
+	public void hide() {
+		System.out.println(this.name + " is hiding.");
+	}
+
+	private int numberGen() {
+		Random gen = new Random();
+		return gen.nextInt(2);
+	}
+
+	/**
+	 * 
+	 * @param Jungle
+	 *            object to fight Safari
+	 */
+	public void fight(Object obj) {
+		if (obj instanceof Jungle) {
+			Jungle fighting = (Jungle) obj;
+		} else if (obj instanceof Arctic) {
+			Arctic fighting = (Arctic) obj;
+		} else if (obj instanceof Safari) {
+			Safari fighting = (Safari) obj;
+		} else if (obj instanceof Ocean) {
+			Ocean fighting = (Ocean) obj;
+		} else {
+			Object fighting = obj;
+		}
+		if (numberGen() == 1) {
+			System.out.println(fighting.getName() + " wins");
+		} else
+			System.out.println(this.getName() + " wins");
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * 
+	 * @param name
+	 */
+	public void setName(String name) {
+		if (name == null) {
+			throw new IllegalArgumentException("Name cannot be null");
+		}
+		this.name = name;
+	}
+
+	/**
+	 * @return the speak
+	 */
+	@Override
+	public String getSpeak() {
+		return speak;
+	}
+
+	/**
+	 * @param speak
+	 *            the speak to set
+	 */
+	public void setSpeak(String speak) {
+		if (speak == null) {
+			throw new IllegalArgumentException("Speak cannot be null");
+		}
+		this.speak = speak;
+	}
+}

@@ -1,0 +1,94 @@
+package com.hoglezoo.animals;
+
+
+abstract public class Animal implements AnimalType {
+	private String name;
+	private String speak;
+	private String color;
+
+	@Override
+	public boolean equals(Object obj) {
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Name: " + this.getName() + " Speak: " + this.getSpeak() + " Color: " + this.getColor();
+	}
+
+	/**
+	 * 
+	 */
+	public void eat() {
+		System.out.println(this.name + " has ate.");
+	}
+
+	/**
+	 * 
+	 */
+	public void hide() {
+		System.out.println(this.name + " is hiding.");
+	}
+
+	/**
+	 * 
+	 * @param Anial object to fight another Animal object
+	 *            
+	 */
+	public Animal fight(Animal fighting) {
+		
+		return fighting;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * 
+	 * @param name
+	 */
+	public void setName(String name) {
+		if (name == null) {
+			throw new IllegalArgumentException("Name cannot be null");
+		}
+		this.name = name;
+	}
+
+	/**
+	 * @return the speak
+	 */
+	@Override
+	public String getSpeak() {
+		return speak;
+	}
+
+	/**
+	 * @param speak
+	 *            the speak to set
+	 */
+	public void setSpeak(String speak) {
+		if (speak == null) {
+			throw new IllegalArgumentException("Speak cannot be null");
+		}
+		this.speak = speak;
+	}
+
+	/**
+	 * @return the color
+	 */
+	public String getColor() {
+		return color;
+	}
+
+	/**
+	 * @param color the color to set
+	 */
+	public void setColor(String color) {
+		this.color = color;
+	}
+}

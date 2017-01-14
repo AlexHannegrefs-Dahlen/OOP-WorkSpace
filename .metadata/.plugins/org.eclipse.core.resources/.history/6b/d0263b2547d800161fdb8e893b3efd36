@@ -1,0 +1,23 @@
+package edu.neumont.csc150.tester;
+
+import java.io.File;
+
+import edu.neumont.csc150.myClass.messageMaker;
+
+public class messageTester {
+
+	public static void main(String[] args) {
+		messageMaker myMessage = new messageMaker("Alex", "test subject", "test message");
+		myMessage.addRecipient("Them");
+		myMessage.addRecipient("They");
+		myMessage.addAttachment(null);
+		myMessage.addAttachment(null);
+		File file = new File("File");
+		myMessage.addAttachment(file);
+		myMessage.addAttachment(file);
+		
+		System.out.println(myMessage.toString());
+
+	}
+
+}

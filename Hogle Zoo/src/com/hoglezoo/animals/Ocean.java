@@ -13,7 +13,7 @@ public class Ocean extends Animal {
 	 * 
 	 */
 	public Ocean() {
-
+		super();
 	}
 
 	/**
@@ -23,11 +23,11 @@ public class Ocean extends Animal {
 	 * @param travelMode
 	 * @param speak
 	 */
-	public Ocean(String name, boolean waterBreathing, ModeOfTravelInWater travelMode, String speak) {
-		this.setName(name);
+	public Ocean(String name, boolean waterBreathing, ModeOfTravelInWater travelMode, String speak, String color,
+			int attack) {
+		super(name, color, speak, attack);
 		this.setWaterBreathing(waterBreathing);
 		this.setTravelMode(travelMode);
-		this.setSpeak(speak);
 	}
 
 	/**
@@ -42,15 +42,6 @@ public class Ocean extends Animal {
 	 */
 	public void changeDepth() {
 		System.out.println(this.getName() + " went deeper");
-	}
-
-	/**
-	 * 
-	 */
-	public boolean equals(Object obj) {
-		Ocean equal = (Ocean) obj;
-		return (this.isWaterBreathing() == equal.isWaterBreathing() && this.getTravelMode() == equal.getTravelMode()
-				&& this.getSpeak() == equal.getSpeak());
 	}
 
 	/**
@@ -85,4 +76,10 @@ public class Ocean extends Animal {
 		}
 		this.travelMode = travelMode;
 	}
+
+	@Override
+	public String getSpeak() {
+		return super.speak;
+	}
+
 }

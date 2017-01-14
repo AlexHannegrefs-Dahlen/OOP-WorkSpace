@@ -13,23 +13,13 @@ public class Safari extends Animal {
 	 * 
 	 */
 	public Safari() {
-
+		super();
 	}
 
-	public Safari(String name, boolean carnivore, double travelSpeed, String speak) {
-		this.setName(name);
+	public Safari(String name, boolean carnivore, double travelSpeed, String speak, String color, int attack) {
+		super(name, color, speak, attack);
 		this.setCarnivore(carnivore);
 		this.setTravelSpeed(travelSpeed);
-		this.setSpeak(speak);
-	}
-
-	/**
-	 * 
-	 */
-	public boolean equals(Object obj) {
-		Safari equal = (Safari) obj;
-		return (this.isCarnivore() == equal.isCarnivore() && this.getTravelSpeed() == equal.getTravelSpeed()
-				&& this.getSpeak() == equal.getSpeak());
 	}
 
 	/**
@@ -77,4 +67,10 @@ public class Safari extends Animal {
 			throw new IllegalArgumentException("travelSpeed cannot be less than 0");
 		this.travelSpeed = travelSpeed;
 	}
+
+	@Override
+	public String getSpeak() {
+		return super.speak;
+	}
+
 }

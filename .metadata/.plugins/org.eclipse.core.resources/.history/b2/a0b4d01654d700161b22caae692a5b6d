@@ -1,0 +1,12 @@
+package store.grocery;
+
+public class Celery extends GroceryItem {
+	public Celery() {
+
+	}
+
+	public Celery(double weight) {
+		this.setWeight(weight);
+		this.setPrice();
+	}
+}
