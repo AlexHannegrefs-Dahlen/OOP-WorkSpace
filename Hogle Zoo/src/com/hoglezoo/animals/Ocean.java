@@ -2,7 +2,7 @@ package com.hoglezoo.animals;
 
 /**
  * 
- * @author Alex
+ * @author Alex Ocean animal boolean waterBreathing enum ModeOfTravelInWater
  *
  */
 public class Ocean extends Animal {
@@ -10,13 +10,14 @@ public class Ocean extends Animal {
 	private ModeOfTravelInWater travelMode;
 
 	/**
-	 * 
+	 * basic constructor uses Animal basic constructor
 	 */
 	public Ocean() {
 		super();
 	}
 
 	/**
+	 * overloaded constructor uses Animal overloaded constructor
 	 * 
 	 * @param name
 	 * @param waterBreathing
@@ -31,17 +32,33 @@ public class Ocean extends Animal {
 	}
 
 	/**
-	 * Makes animal swim
+	 * @return Animal toString + water breathing + travel mode
+	 */
+	@Override
+	public String toString() {
+		return super.toString() + ", is water breathing " + this.isWaterBreathing() + ", travel mode "
+				+ this.getTravelMode();
+	}
+
+	/**
+	 * Makes ocean swim
 	 */
 	public void swim() {
 		System.out.println(this.getName() + " is swimming with " + this.getTravelMode());
 	}
 
 	/**
-	 * Animal goes deeper in water
+	 * Ocean goes deeper
 	 */
-	public void changeDepth() {
+	public void goDeeper() {
 		System.out.println(this.getName() + " went deeper");
+	}
+
+	/**
+	 * Ocean goes shallow
+	 */
+	public void goShallow() {
+		System.out.println(this.getName() + " went shallower");
 	}
 
 	/**
@@ -75,11 +92,6 @@ public class Ocean extends Animal {
 			throw new IllegalArgumentException("travelMode cannot be null");
 		}
 		this.travelMode = travelMode;
-	}
-
-	@Override
-	public String getSpeak() {
-		return super.speak;
 	}
 
 }

@@ -2,7 +2,8 @@ package com.hoglezoo.animals;
 
 /**
  * 
- * @author Alex
+ * @author Alex Arctic animal extends Animal double swimDuration double
+ *         heatRetentionFactor
  *
  */
 public class Arctic extends Animal {
@@ -10,13 +11,14 @@ public class Arctic extends Animal {
 	private double heatRetentionFactor;
 
 	/**
-	 * 
+	 * basic Constructor uses Animal basic Constructor
 	 */
 	public Arctic() {
 		super();
 	}
 
 	/**
+	 * Overloaded Constructor uses Animal overloaded constructor
 	 * 
 	 * @param swimDuration
 	 * @param heatRetentionFactor
@@ -30,17 +32,32 @@ public class Arctic extends Animal {
 	}
 
 	/**
-	 * 
+	 * returns Animal toString + swim duration + heat retention
+	 */
+	public String toString() {
+		return super.toString() + ", swim duration " + this.getSwimDuration() + ", heat retention factor "
+				+ this.getHeatRetentionFactor();
+	}
+
+	/**
+	 * makes Arctic hibernate
 	 */
 	public void hibernate() {
 		System.out.println(this.getName() + " is hibernating");
 	}
 
 	/**
-	 * 
+	 * makes Arctic make a snow animal
 	 */
 	public void makeSnowAnimal() {
 		System.out.println(this.getName() + " made a snow animal");
+	}
+
+	/**
+	 * makes Arctic roll
+	 */
+	public void roll() {
+		System.out.println(this.getName() + "rolled");
 	}
 
 	/**
@@ -78,10 +95,4 @@ public class Arctic extends Animal {
 		}
 		this.heatRetentionFactor = heatRetentionFactor;
 	}
-
-	@Override
-	public String getSpeak() {
-		return super.speak;
-	}
-
 }

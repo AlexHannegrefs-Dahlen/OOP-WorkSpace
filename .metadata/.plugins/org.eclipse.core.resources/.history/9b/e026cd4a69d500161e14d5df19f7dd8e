@@ -1,5 +1,0 @@
-package com.hoglezoo.animals;
-
-public class Animal {
-	private String name;
-}

@@ -1,9 +1,0 @@
-
-public interface GroceryInterface {
-	double weight = 0;
-	double price = 0;
-
-	double getWeight();
-
-	double getPrice();
-}

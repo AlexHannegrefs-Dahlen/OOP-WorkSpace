@@ -2,7 +2,7 @@ package com.hoglezoo.animals;
 
 /**
  * 
- * @author Alex
+ * @author Alex Jungle animal boolean groundDwelling int IQ
  *
  */
 public class Jungle extends Animal {
@@ -10,17 +10,21 @@ public class Jungle extends Animal {
 	private int IQ;
 
 	/**
-	 * 
+	 * basic constructor
 	 */
 	public Jungle() {
 		super();
 	}
 
 	/**
+	 * overloaded constructor
 	 * 
+	 * @param name
 	 * @param groundDwelling
 	 * @param IQ
 	 * @param speak
+	 * @param color
+	 * @param attack
 	 */
 	public Jungle(String name, boolean groundDwelling, int IQ, String speak, String color, int attack) {
 		super(name, color, speak, attack);
@@ -29,17 +33,31 @@ public class Jungle extends Animal {
 	}
 
 	/**
-	 * Makes jungle jump
+	 * @return Animal toString + ground dwelling + IQ
 	 */
-	public void jump() {
-		System.out.println(super.getName() + " jumped.");
+	public String toString() {
+		return super.toString() + ", is ground dwelling " + this.isGroundDwelling() + ", IQ " + this.getIQ();
 	}
 
 	/**
-	 * 
+	 * Makes jungle jump
+	 */
+	public void jump() {
+		System.out.println(this.getName() + " jumped.");
+	}
+
+	/**
+	 * Makes jungle make a shelter
 	 */
 	public void makeShelter() {
-		System.out.println(super.getName() + " tore down leaves and make a small shelter");
+		System.out.println(this.getName() + " tore down leaves and to a small shelter");
+	}
+
+	/**
+	 * Makes jungle lay down
+	 */
+	public void layDown() {
+		System.out.println(this.getName() + "is laying down");
 	}
 
 	/**
@@ -73,11 +91,6 @@ public class Jungle extends Animal {
 			throw new IllegalArgumentException("iQ cannot be less than 0");
 		}
 		IQ = iQ;
-	}
-
-	@Override
-	public String getSpeak() {
-		return super.speak;
 	}
 
 }

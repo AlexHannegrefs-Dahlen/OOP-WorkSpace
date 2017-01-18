@@ -1,5 +1,9 @@
 package com.hoglezoo.animals;
 
+/**
+ * 
+ * @author Alex interface for Animal class
+ */
 public interface AnimalType {
 	String name = null;
 	String speak = null;

@@ -1,15 +1,32 @@
 package com.hoglezoo.animals;
 
+/**
+ * 
+ * @author Alex basic animal class String speak String name String color int
+ *         attack
+ *
+ */
 abstract public class Animal implements AnimalType, Comparable<Animal> {
 	private String name;
-	protected String speak;
+	private String speak;
 	private String color;
 	private int attack;
 
+	/**
+	 * basic constructor
+	 */
 	public Animal() {
 
 	}
 
+	/**
+	 * Overloaded Constructor
+	 * 
+	 * @param name
+	 * @param color
+	 * @param speak
+	 * @param attack
+	 */
 	public Animal(String name, String color, String speak, int attack) {
 		this.setName(name);
 		this.setColor(color);
@@ -17,6 +34,10 @@ abstract public class Animal implements AnimalType, Comparable<Animal> {
 		this.setAttack(attack);
 	}
 
+	/**
+	 * returns true if name, color, speak, and attack are equal between this and
+	 * obj
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Animal)) {
@@ -27,20 +48,23 @@ abstract public class Animal implements AnimalType, Comparable<Animal> {
 				&& this.getSpeak().equals(equalling.getSpeak()) && this.getAttack() == equalling.getAttack();
 	}
 
+	/**
+	 * returns String = Name, Speak, Color
+	 */
 	@Override
 	public String toString() {
 		return "Name: " + this.getName() + ", Speak: " + this.getSpeak() + ", Color: " + this.getColor();
 	}
 
 	/**
-	 * 
+	 * makes animal eat
 	 */
 	public String eat() {
 		return this.name + " has ate.";
 	}
 
 	/**
-	 * 
+	 * akes animal hide
 	 */
 	public String hide() {
 		return this.name + " is hiding.";
@@ -48,8 +72,9 @@ abstract public class Animal implements AnimalType, Comparable<Animal> {
 
 	/**
 	 * 
-	 * @param Anial
-	 *            object to fight another Animal object
+	 * @param Animal
+	 *            object to fight another Animal object returns the animal that
+	 *            has the higher attack
 	 * 
 	 */
 	public Animal fight(Animal fighting) {
@@ -60,16 +85,17 @@ abstract public class Animal implements AnimalType, Comparable<Animal> {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * @return String name
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
+	 * sets parameter name to String name
 	 * 
-	 * @param name
+	 * @param String
+	 *            name
 	 */
 	public void setName(String name) {
 		if (name == null) {
@@ -79,9 +105,11 @@ abstract public class Animal implements AnimalType, Comparable<Animal> {
 	}
 
 	/**
-	 * @return the speak
+	 * @return String speak
 	 */
-	abstract public String getSpeak();
+	public String getSpeak() {
+		return this.speak;
+	}
 
 	/**
 	 * @param speak
@@ -118,7 +146,7 @@ abstract public class Animal implements AnimalType, Comparable<Animal> {
 
 	/**
 	 * @param attack
-	 *            the attack to set
+	 *            int attack to set
 	 */
 	public void setAttack(int attack) {
 		if (attack < 0) {
@@ -127,6 +155,11 @@ abstract public class Animal implements AnimalType, Comparable<Animal> {
 		this.attack = attack;
 	}
 
+	/**
+	 * @param Animal
+	 *            Compares attack, returns 1 if this attack is greater, returns
+	 *            -1 if arg0 attack is greater, returns 0 if they are equal
+	 */
 	@Override
 	public int compareTo(Animal arg0) {
 		if (this.getAttack() > arg0.getAttack())

@@ -14,7 +14,6 @@ public class messageTester {
 		myMessage.addAttachment(file);
 		File file2 = new File("in.txt");
 		myMessage.addAttachment(file2);
-		
 		System.out.println(myMessage.toString());
 	}
 

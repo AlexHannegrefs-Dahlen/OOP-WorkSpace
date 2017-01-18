@@ -9,10 +9,10 @@ import com.hoglezoo.animals.Safari;
 
 public class Zoo {
 	/**
-	 * Make animals from the other classes prints speak for all the animals an
-	 * animal fights an animal from every class
 	 * 
 	 * @param args
+	 *            Array of type animal uses animal class and Arctic, Jungle,
+	 *            Safari, and Ocean class methods
 	 */
 	public static void main(String[] args) {
 		Animal[] animals = new Animal[11];
@@ -39,6 +39,13 @@ public class Zoo {
 		System.out.println("Fights:");
 		System.out.println("");
 
+		for (int i = 0; i < animals.length; i++) {
+			if (i == animals.length - 1)
+				System.out.println((animals[i].fight(animals[0])).getName() + " wins");
+			else
+				System.out.println((animals[i].fight(animals[i + 1])).getName() + " wins");
+		}
+
 		System.out.println("");
 		System.out.println("Using eat method:");
 		System.out.println("");
@@ -59,49 +66,99 @@ public class Zoo {
 		System.out.println("Jungle class jump:");
 		System.out.println("");
 
-		animals[4].
+		((Jungle) animals[4]).jump();
 
-				System.out.println("");
+		System.out.println("");
 		System.out.println("Jungle class shelter:");
 		System.out.println("");
 
-		Gorilla.makeShelter();
+		((Jungle) animals[5]).makeShelter();
+
+		System.out.println("");
+		System.out.println("Jungle class lawDown:");
+		System.out.println("");
+
+		((Jungle) animals[3]).layDown();
 
 		System.out.println("");
 		System.out.println("Ocean class swim:");
 		System.out.println("");
 
-		JellyFish.swim();
+		((Ocean) animals[8]).swim();
 
 		System.out.println("");
-		System.out.println("Ocean class changeDepth:");
+		System.out.println("Ocean class goDeeper:");
 		System.out.println("");
 
-		Squid.changeDepth();
+		((Ocean) animals[10]).goDeeper();
+
+		System.out.println("");
+		System.out.println("Ocean class goShallow:");
+		System.out.println("");
+
+		((Ocean) animals[9]).goShallow();
 
 		System.out.println("");
 		System.out.println("Safari class run:");
 		System.out.println("");
 
-		Giraffe.run();
+		((Safari) animals[6]).run();
 
 		System.out.println("");
-		System.out.println("Safari class sleep");
+		System.out.println("Safari class sleep:");
 		System.out.println("");
 
-		Lion.sleep();
+		((Safari) animals[7]).sleep();
 
 		System.out.println("");
-		System.out.println("Arctic class hibernate");
+		System.out.println("Safari class clean:");
 		System.out.println("");
 
-		ArcticFox.hibernate();
+		((Safari) animals[6]).clean();
 
 		System.out.println("");
-		System.out.println("Arctic class makeSnowAnimal");
+		System.out.println("Arctic class hibernate:");
 		System.out.println("");
 
-		Seal.makeSnowAnimal();
+		((Arctic) animals[0]).hibernate();
+
+		System.out.println("");
+		System.out.println("Arctic class makeSnowAnimal:");
+		System.out.println("");
+
+		((Arctic) animals[1]).makeSnowAnimal();
+
+		System.out.println("");
+		System.out.println("Arctic class roll:");
+		System.out.println("");
+
+		((Arctic) animals[2]).roll();
+
+		System.out.println("");
+		System.out.println("toString:");
+		System.out.println("");
+
+		for (int i = 0; i < animals.length; i++) {
+			System.out.println(animals[i].toString());
+		}
+
+		System.out.println("");
+		System.out.println("compareTo:");
+		System.out.println("");
+
+		for (int i = 0; i < animals.length; i++) {
+			if (i == animals.length - 1) {
+				if (animals[i].compareTo(animals[0]) > 0)
+					System.out.println(animals[10].getName() + " is stronger");
+				else
+					System.out.println(animals[0].getName() + " is stronger");
+			} else {
+				if (animals[i].compareTo(animals[i + 1]) > 0)
+					System.out.println(animals[i].getName() + " is stronger");
+				else
+					System.out.println(animals[i + 1].getName() + " is stronger");
+
+			}
+		}
 	}
-
 }

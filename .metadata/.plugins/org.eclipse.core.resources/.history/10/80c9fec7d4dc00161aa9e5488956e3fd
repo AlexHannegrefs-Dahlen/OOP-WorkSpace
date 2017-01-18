@@ -1,0 +1,20 @@
+package edu.neumont.csc150.neudata;
+
+public class Instructor extends Person {
+	private int officeNumber;
+
+	/**
+	 * @return the officeNumber
+	 */
+	public int getOfficeNumber() {
+		return officeNumber;
+	}
+
+	/**
+	 * @param officeNumber
+	 *            the officeNumber to set
+	 */
+	public void setOfficeNumber(int officeNumber) {
+		this.officeNumber = officeNumber;
+	}
+}
