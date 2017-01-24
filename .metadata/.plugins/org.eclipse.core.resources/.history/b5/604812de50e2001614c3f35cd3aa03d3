@@ -1,0 +1,19 @@
+package hello.file;
+
+import java.io.PrintStream;
+
+public class Hello_Input_Output {
+	private PrintStream out = System.out;
+
+	public void writeTextLine(String text) {
+		out.println(text);
+	}
+
+	public String readTextLine() {
+		return null;
+	}
+
+	public void setOutputWriter(PrintStream writer) {
+		this.out = writer;
+	}
+}

@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import edu.neumont.csc150.messageinterface.Message;
+import edu.neumont.csc150.messageinterface.model.Message;
 
 /**
  * 
@@ -25,7 +25,7 @@ public class messageMaker implements Message {
 	 * 
 	 */
 	public messageMaker() {
-
+		createDate();
 	}
 
 	/**

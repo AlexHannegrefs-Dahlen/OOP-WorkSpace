@@ -1,0 +1,7 @@
+package tic.tac.toe.model.player;
+
+public class OPlayer extends Player{
+	OPlayer () {
+		
+	}
+}

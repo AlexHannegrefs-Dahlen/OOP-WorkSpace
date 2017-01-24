@@ -1,0 +1,9 @@
+package tic.tac.toe.view;
+
+import tic.tac.toe.model.board.Board;
+
+public class Viewer {
+	public void printBoard(){
+		for(int i = 0; i < Board.getBoardspaces().length; i++)
+	}
+}

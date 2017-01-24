@@ -1,0 +1,47 @@
+package edu.neumont.csc150.messageinterface.view;
+
+import java.io.IOException;
+import ConsoleUI.ConsoleUI;
+import edu.neumont.csc150.messageinterface.controller.MessageApp;
+
+public class MessageUI {
+
+	public String getFromEmailFromUser() throws IOException {
+		ConsoleUI.promptForInput("Enter email", false);
+		return null;
+	}
+
+	public int getMainMenuSelection() throws IOException {
+		final int COUNT_CHOICES = MessageApp.UserAction.COUNT_OF_USER_ACTIONS;
+		String[] menuOptions = new String[COUNT_CHOICES];
+		menuOptions[MessageApp.UserAction.CREATE_MESSAGE] = "Create Message";
+		menuOptions[MessageApp.UserAction.SET_SUBJECT] = "Set subject";
+		menuOptions[MessageApp.UserAction.SET_BODY] = "Set body";
+		menuOptions[MessageApp.UserAction.ADD_RECIPIENT] = "Add recipient";
+		menuOptions[MessageApp.UserAction.ADD_ATTACHMENT] = "Add attchment";
+		menuOptions[MessageApp.UserAction.DISPLAY_MESSAGE] = "Display Message";
+		return ConsoleUI.promptForMenuSelection(menuOptions, true);
+	}
+
+	public String getAttachmentFile() {
+		return null;
+	}
+
+	public String getRecipient() {
+		
+		return null;
+	}
+
+	public String getMessageBody() throws IOException {
+		return ConsoleUI.promptForInput("Enter message", false).trim();
+	}
+
+	public String getMessageSubject() throws IOException {
+		return ConsoleUI.promptForInput("Enter subject", false).trim();
+	}
+
+	public void displayString(String string) {
+		System.out.println(string);
+	}
+
+}

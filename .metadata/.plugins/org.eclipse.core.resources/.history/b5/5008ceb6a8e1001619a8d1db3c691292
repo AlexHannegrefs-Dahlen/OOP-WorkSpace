@@ -1,0 +1,26 @@
+package tic.tac.toe.view;
+
+import java.io.IOException;
+
+import ConsoleUI.ConsoleUI;
+import tic.tac.toe.model.board.Board;
+import tic.tac.toe.model.player.Player;
+
+public class Viewer {
+
+	public static void printBoard() {
+		for (int i = 0; i < Board.getBoardspaces().length; i++) {
+			System.out.print(Board.getBoardspaces()[i].getSymbol());
+			if (i == 2 || i == 5)
+				System.out.println("");
+		}
+	}
+
+	public static int getSquareSelection(Player turn) throws IOException{
+		boolean valid = false;
+		while(!valid){
+		int squareSelection = ConsoleUI.promptForInt("What square do you want?", 1, 9);
+		if(Board.getBoardspaces()[squareSelection].isTaken())
+		}
+	}
+}

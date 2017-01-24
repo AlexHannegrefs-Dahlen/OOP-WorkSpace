@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="dahlen.alex.pizza.Pizza"/>
-<fullyQualifiedTypeName name="dahlen.alex.pizza.CrustType"/>
-<fullyQualifiedTypeName name="java.lang.Class"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="com.neumont.csc150.airplace.Passengers"/>
 <fullyQualifiedTypeName name="com.neumont.csc150.airplace.Pilot"/>
 <fullyQualifiedTypeName name="com.neumont.csc150.airplace.AirPlane"/>
 <fullyQualifiedTypeName name="com.neumont.csc150.airplace.Rank"/>
@@ -28,18 +23,41 @@
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="edu.neumont.csc150.myClass.messageMaker"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 <fullyQualifiedTypeName name="com.hoglezoo.animals.Animal"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="edu.neumont.csc150.neudata.Person"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.Comparable"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="edu.neumont.csc150.messageinterface.view.MessageUI"/>
+<fullyQualifiedTypeName name="edu.neumont.csc150.myClass.messageMaker"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.util.concurrent.CountDownLatch"/>
+<fullyQualifiedTypeName name="org.omg.PortableInterceptor.HOLDING"/>
+<fullyQualifiedTypeName name="edu.neumont.csc150.messageinterface.controller.MessageApp"/>
+<fullyQualifiedTypeName name="edu.neumont.csc150.messageinterface.controller.MessageApp.UserAction"/>
+<fullyQualifiedTypeName name="tic.tac.toe.model.player.XPlayer"/>
+<fullyQualifiedTypeName name="tic.tac.toe.model.player.Player.XO"/>
+<fullyQualifiedTypeName name="tic.tac.toe.model.player.OPlayer"/>
+<fullyQualifiedTypeName name="tic.tac.toe.model.player.Player"/>
+<fullyQualifiedTypeName name="java.io.Console"/>
+<fullyQualifiedTypeName name="ConsoleUI.ConsoleUI"/>
+<fullyQualifiedTypeName name="tic.tac.toe.view.Viewer"/>
+<fullyQualifiedTypeName name="tic.tac.toe.model.board.Board"/>
+<fullyQualifiedTypeName name="tic.tac.toe.controller.Tic_Tac_Toe"/>
+<fullyQualifiedTypeName name="hello.file.Hello_Input_Output"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.io.PrintStream"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="javax.management.RuntimeErrorException"/>
+<fullyQualifiedTypeName name="java.lang.RuntimeException"/>
 </qualifiedTypeNameHistroy>

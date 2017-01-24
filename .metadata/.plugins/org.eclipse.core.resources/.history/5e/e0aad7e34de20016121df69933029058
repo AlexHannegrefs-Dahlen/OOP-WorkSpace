@@ -1,0 +1,9 @@
+package tic.tac.toe.model.player;
+
+public class XPlayer extends Player {
+
+	public XPlayer(XO type, boolean turn) {
+		super(type, turn);
+	}
+
+}

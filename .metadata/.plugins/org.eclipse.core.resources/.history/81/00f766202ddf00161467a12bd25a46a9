@@ -1,0 +1,12 @@
+package edu.neumont.csc150.messageinterface;
+
+import edu.neumont.csc150.messageinterface.controller.MessageApp;
+
+public class MessageSender {
+
+	public static void main(String[] args) {
+		MessageApp app= new MessageApp();
+		app.run();
+	}
+
+}

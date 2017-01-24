@@ -1,0 +1,11 @@
+1484844196661	Rename package 'edu.neumont.csc150.messageinterface'
+1484844346394	Delete element
+1484845760273	Encapsulate field 'username'
+1484846283689	Rename field 'username'
+1484846345777	Rename local variable 'username'
+1484847744880	Rename field 'ADD_RECIPIENTS'
+1484847759773	Rename field 'ADD_ATTACHMENRRS'
+1484847783555	Rename method 'handleAddRecipients'
+1484847788892	Rename method 'handleAddAttachments'
+1484929262663	Delete element
+1484932778690	Delete element

@@ -1,0 +1,7 @@
+package tic.tac.toe.controller;
+
+public class Tic_Tac_Toe {
+	public static void run(){
+		
+	}
+}

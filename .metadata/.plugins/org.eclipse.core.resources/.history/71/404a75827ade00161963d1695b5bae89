@@ -1,0 +1,56 @@
+package edu.neumont.csc150.messageinterface.controller;
+
+import edu.neumont.csc150.messageinterface.view.MessageUI;
+import edu.neumont.csc150.myClass.messageMaker;
+
+public class MessageApp {
+	
+	public class UserAction {
+		public static final int EXIT = 0;
+		public static final int CREATE_MESSAGE = 1;
+		public static final int SET_SUBJECT = 2;
+		public static final int SET_BODY = 3;
+		public static final int ADD_RECIPIENTS = 4;
+		public static final int ADD_ATTACHMENTS = 5;
+		//public static final int SEND = 6;
+	}
+	private MessageUI ui = new MessageUI();
+
+	private messageMaker msg;
+
+	private String fromEmail;
+
+	public void run() {
+		// get a username
+		this.setFromEmail(ui.getFromEmailFromUser());
+		// display menu
+		ui.displayMainMenu();
+		// get user's selection
+		int selection = ui.getMainMenuSelection();
+		// handle selection(create message, set sender, subject, body, add
+		this.handleUserSelection(selection);
+		// recipts, add attachments, send
+		// future (store prev message
+	}
+
+	/**
+	 * @return the username
+	 */
+	public String getFromEmail() {
+		return fromEmail;
+	}
+
+	/**
+	 * @param fromEmail the username to set
+	 */
+	public void setFromEmail(String fromEmail) {
+		if (fromEmail == null){
+			
+		}
+		if(fromEmail.length() == 0){
+			
+		}
+		this.fromEmail = fromEmail;
+	}
+
+}

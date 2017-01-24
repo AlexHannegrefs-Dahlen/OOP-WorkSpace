@@ -1,0 +1,10 @@
+package hello.file;
+
+public class Hello_File {
+
+	public static void main(String[] args) {
+		Hello_Input_Output io = new Hello_Input_Output();
+		io.writeTextLine("Hello World");
+	}
+
+}
