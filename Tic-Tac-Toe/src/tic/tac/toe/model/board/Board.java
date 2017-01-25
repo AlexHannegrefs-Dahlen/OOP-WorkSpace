@@ -5,7 +5,7 @@ public class Board {
 
 	public Board() {
 		for (int i = 0; i < Board.Boardspaces.length; i++) {
-			Boardspaces[i] = new BoardSpace((char) (i + 49), false);
+			Boardspaces[i] = new BoardSpace(null, false);
 		}
 	}
 

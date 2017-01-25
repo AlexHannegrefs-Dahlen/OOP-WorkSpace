@@ -1,11 +1,13 @@
 package tic.tac.toe.model.board;
 
+import tic.tac.toe.model.player.Player;
+
 public class BoardSpace {
 
-	private char symbol;
+	private Player symbol;
 	private boolean taken;
 
-	BoardSpace(char symbol, boolean taken) {
+	BoardSpace(Player symbol, boolean taken) {
 		this.setSymbol(symbol);
 		this.setTaken(taken);
 	}
@@ -28,7 +30,7 @@ public class BoardSpace {
 	/**
 	 * @return the symbol
 	 */
-	public char getSymbol() {
+	public Player getSymbol() {
 		return symbol;
 	}
 
@@ -36,7 +38,7 @@ public class BoardSpace {
 	 * @param symbol
 	 *            the symbol to set
 	 */
-	public void setSymbol(char symbol) {
+	public void setSymbol(Player symbol) {
 		this.symbol = symbol;
 	}
 }

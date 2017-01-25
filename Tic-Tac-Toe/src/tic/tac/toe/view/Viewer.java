@@ -9,7 +9,12 @@ public class Viewer {
 
 	public static void printBoard() {
 		for (int i = 0; i < Tic_Tac_Toe.getGameBoard().getBoardspaces().length; i++) {
-			System.out.print(Tic_Tac_Toe.getGameBoard().getBoardspaces()[i].getSymbol());
+			if(Tic_Tac_Toe.getGameBoard().getBoardspaces()[i].getSymbol() == null)
+				System.out.print(i+1);
+			else if(Tic_Tac_Toe.getGameBoard().getBoardspaces()[i].getSymbol() == Tic_Tac_Toe.getXPlayer())
+				System.out.print("X");
+			else
+				System.out.print("O");
 			if (i == 2 || i == 5 || i == 8)
 				System.out.println("");
 		}
