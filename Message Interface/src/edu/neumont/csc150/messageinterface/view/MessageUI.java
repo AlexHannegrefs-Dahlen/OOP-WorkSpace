@@ -19,6 +19,8 @@ public class MessageUI {
 		menuOptions[MessageApp.UserAction.ADD_RECIPIENT] = "Add recipient";
 		menuOptions[MessageApp.UserAction.ADD_ATTACHMENT] = "Add attchment";
 		menuOptions[MessageApp.UserAction.DISPLAY_MESSAGE] = "Display Message";
+		menuOptions[MessageApp.UserAction.SAVE] = "Save message";
+		menuOptions[MessageApp.UserAction.LOAD] = "Load message";
 		return ConsoleUI.promptForMenuSelection(menuOptions, true);
 	}
 
@@ -69,6 +71,10 @@ public class MessageUI {
 
 	public void displayString(String string) {
 		System.out.println(string);
+	}
+
+	public boolean startANewMessage() throws IOException {
+		return ConsoleUI.promptForBool("New message or load a message? [New/Load]", "New", "Load");
 	}
 
 }

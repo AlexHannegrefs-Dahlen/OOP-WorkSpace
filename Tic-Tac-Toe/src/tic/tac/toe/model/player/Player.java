@@ -1,5 +1,10 @@
 package tic.tac.toe.model.player;
 
+/**
+ * 
+ * @author Alex
+ *
+ */
 public abstract class Player {
 
 	private boolean turn;

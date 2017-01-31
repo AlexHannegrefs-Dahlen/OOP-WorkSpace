@@ -1,9 +1,0 @@
-package tic.tac.toe.model.player;
-
-public class OPlayer extends Player {
-
-	OPlayer(XO type, boolean turn) {
-		super(type, turn);
-	}
-
-}

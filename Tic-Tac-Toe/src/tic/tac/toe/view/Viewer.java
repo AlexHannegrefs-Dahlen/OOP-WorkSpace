@@ -5,13 +5,20 @@ import java.io.IOException;
 import ConsoleUI.ConsoleUI;
 import tic.tac.toe.controller.Tic_Tac_Toe;
 
+/**
+ * 
+ * @author Alex
+ *
+ */
 public class Viewer {
-
+	/**
+	 * Prints tic tac toe board
+	 */
 	public static void printBoard() {
 		for (int i = 0; i < Tic_Tac_Toe.getGameBoard().getBoardspaces().length; i++) {
-			if(Tic_Tac_Toe.getGameBoard().getBoardspaces()[i].getSymbol() == null)
-				System.out.print(i+1);
-			else if(Tic_Tac_Toe.getGameBoard().getBoardspaces()[i].getSymbol() == Tic_Tac_Toe.getXPlayer())
+			if (Tic_Tac_Toe.getGameBoard().getBoardspaces()[i].getSymbol() == null)
+				System.out.print(i + 1);
+			else if (Tic_Tac_Toe.getGameBoard().getBoardspaces()[i].getSymbol() == Tic_Tac_Toe.getXPlayer())
 				System.out.print("X");
 			else
 				System.out.print("O");
@@ -20,6 +27,11 @@ public class Viewer {
 		}
 	}
 
+	/**
+	 * 
+	 * @return int of square selected
+	 * @throws IOException
+	 */
 	public static int getSquareSelection() throws IOException {
 		boolean valid = false;
 		int squareSelection = 0;
@@ -33,7 +45,21 @@ public class Viewer {
 		return squareSelection;
 	}
 
+	/**
+	 * prints message to console
+	 * 
+	 * @param message
+	 */
 	public static void displayStringToUser(String message) {
 		System.out.println(message);
+	}
+
+	/**
+	 * 
+	 * @return the boolean of playing again
+	 * @throws IOException
+	 */
+	public static boolean replayGame() throws IOException {
+		return ConsoleUI.promptForBool("Play again? [Y/N]", "Y", "N");
 	}
 }

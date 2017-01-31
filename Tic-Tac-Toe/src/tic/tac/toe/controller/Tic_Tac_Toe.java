@@ -8,10 +8,14 @@ import tic.tac.toe.model.player.Player;
 import tic.tac.toe.model.player.XPlayer;
 import tic.tac.toe.view.Viewer;
 
+/**
+ * 
+ * @author Alex tic tac toe controller
+ */
 public class Tic_Tac_Toe {
 	private static Player playerX;
 	private static Player playerO;
-	private static Board gameBoard = new Board();
+	private static Board gameBoard;
 
 	private final int SQUARE_ONE = 0;
 	private final int SQUARE_TWO = 1;
@@ -23,36 +27,47 @@ public class Tic_Tac_Toe {
 	private final int SQUARE_EIGHT = 7;
 	private final int SQUARE_NINE = 8;
 
+	/**
+	 * start
+	 * 
+	 * @throws IOException
+	 */
 	public void run() throws IOException {
-		playerX = new XPlayer(true);
-		playerO = new OPlayer(false);
-		boolean gameQuit = false;
-		while (!gameQuit) {
-			Viewer.printBoard();
-			if (playerX.isTurn()) {
-				Viewer.displayStringToUser("Player X's turn");
-				takeSquareUserSelected(Viewer.getSquareSelection());
-			} else {
-				Viewer.displayStringToUser("Player O's turn");
-				takeSquareUserSelected(Viewer.getSquareSelection());
-			}
-			Player won = checkForWinner(SQUARE_ONE, SQUARE_TWO, SQUARE_THREE);
-			if (won == null) {
-				won = checkForWinner(SQUARE_FOUR, SQUARE_FIVE, SQUARE_SIX);
+		do {
+			gameBoard = new Board();
+			playerX = new XPlayer(true);
+			playerO = new OPlayer(false);
+			Player won = null;
+			boolean gameQuit = false;
+			int turnCounter = 0;
+			while (!gameQuit) {
+				Viewer.printBoard();
+				if (playerX.isTurn()) {
+					Viewer.displayStringToUser("Player X's turn");
+					takeSquareUserSelected(Viewer.getSquareSelection());
+				} else {
+					Viewer.displayStringToUser("Player O's turn");
+					takeSquareUserSelected(Viewer.getSquareSelection());
+				}
+				won = checkForWinner(SQUARE_ONE, SQUARE_TWO, SQUARE_THREE);
 				if (won == null) {
-					won = checkForWinner(SQUARE_SEVEN, SQUARE_EIGHT, SQUARE_NINE);
+					won = checkForWinner(SQUARE_FOUR, SQUARE_FIVE, SQUARE_SIX);
 					if (won == null) {
-						won = checkForWinner(SQUARE_ONE, SQUARE_FIVE, SQUARE_NINE);
+						won = checkForWinner(SQUARE_SEVEN, SQUARE_EIGHT, SQUARE_NINE);
 						if (won == null) {
-							won = checkForWinner(SQUARE_SEVEN, SQUARE_FIVE, SQUARE_THREE);
+							won = checkForWinner(SQUARE_ONE, SQUARE_FIVE, SQUARE_NINE);
 							if (won == null) {
-								won = checkForWinner(SQUARE_ONE, SQUARE_FOUR, SQUARE_SEVEN);
+								won = checkForWinner(SQUARE_SEVEN, SQUARE_FIVE, SQUARE_THREE);
 								if (won == null) {
-									won = checkForWinner(SQUARE_TWO, SQUARE_FIVE, SQUARE_EIGHT);
+									won = checkForWinner(SQUARE_ONE, SQUARE_FOUR, SQUARE_SEVEN);
 									if (won == null) {
-										won = checkForWinner(SQUARE_THREE, SQUARE_SIX, SQUARE_NINE);
+										won = checkForWinner(SQUARE_TWO, SQUARE_FIVE, SQUARE_EIGHT);
 										if (won == null) {
-											switchTurns();
+											won = checkForWinner(SQUARE_THREE, SQUARE_SIX, SQUARE_NINE);
+											if (won == null) {
+												switchTurns();
+												turnCounter++;
+											}
 										}
 									}
 								}
@@ -60,14 +75,17 @@ public class Tic_Tac_Toe {
 						}
 					}
 				}
+				if (won != null || turnCounter == 9) {
+					gameQuit = true;
+				}
 			}
 			if (won != null) {
-				gameQuit = true;
-				System.out.println(checkWhoOne(won) + " is the winner!");
+				Viewer.displayStringToUser((checkWhoOne(won) + " is the winner!"));
 				Viewer.printBoard();
+			} else {
+				Viewer.displayStringToUser("Tie game");
 			}
-
-		}
+		} while (Viewer.replayGame());
 	}
 
 	private String checkWhoOne(Player winner) {
@@ -103,14 +121,26 @@ public class Tic_Tac_Toe {
 		playerX.setTurn(!playerX.isTurn());
 	}
 
+	/**
+	 * 
+	 * @return board
+	 */
 	public static Board getGameBoard() {
 		return gameBoard;
 	}
 
+	/**
+	 * 
+	 * @return OPlayer
+	 */
 	public static Player getOPlayer() {
 		return playerO;
 	}
 
+	/**
+	 * 
+	 * @return XPlayer
+	 */
 	public static Player getXPlayer() {
 		return playerX;
 	}

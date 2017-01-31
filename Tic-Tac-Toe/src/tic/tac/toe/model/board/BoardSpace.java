@@ -2,6 +2,11 @@ package tic.tac.toe.model.board;
 
 import tic.tac.toe.model.player.Player;
 
+/**
+ * 
+ * @author Alex
+ * 
+ */
 public class BoardSpace {
 
 	private Player symbol;

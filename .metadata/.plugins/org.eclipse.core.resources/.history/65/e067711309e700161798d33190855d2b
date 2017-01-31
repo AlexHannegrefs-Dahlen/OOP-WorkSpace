@@ -1,0 +1,30 @@
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class HelloWindow {
+	private static JFrame window;
+
+	private static JPanel mainPanel;
+
+	public static void main(String[] args) {
+		window = new JFrame("Dat window booi");
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		initGUI();
+		
+		mainPanel.setBackground(Color.GREEN);
+
+		window.setVisible(true);
+	}
+
+	private static void initGUI() {
+		mainPanel = new JPanel();
+
+	}
+}
+

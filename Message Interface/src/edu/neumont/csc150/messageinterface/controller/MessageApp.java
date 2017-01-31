@@ -3,8 +3,8 @@ package edu.neumont.csc150.messageinterface.controller;
 import java.io.File;
 import java.io.IOException;
 
+import edu.neumont.csc150.messageinterface.model.messageMaker;
 import edu.neumont.csc150.messageinterface.view.MessageUI;
-import edu.neumont.csc150.myClass.messageMaker;
 
 public class MessageApp {
 
@@ -16,8 +16,9 @@ public class MessageApp {
 		public static final int ADD_RECIPIENT = 4;
 		public static final int ADD_ATTACHMENT = 5;
 		public static final int DISPLAY_MESSAGE = 6;
-		// public static final int SEND = 7;
-		public static final int COUNT_OF_USER_ACTIONS = 7;
+		public static final int SAVE = 7;
+		public static final int LOAD = 8;
+		public static final int COUNT_OF_USER_ACTIONS = 9;
 	}
 
 	private MessageUI ui = new MessageUI();
@@ -28,17 +29,20 @@ public class MessageApp {
 
 	private boolean isExitTime = false;
 
-	public void run() throws IOException {
+	public void run() throws IOException, ClassNotFoundException {
 		ui.displayString("Welcome");
-		this.setFromEmail(ui.getFromEmailFromUser());
-		this.handleUserSelection(UserAction.CREATE_MESSAGE);
+		if (ui.startANewMessage()) {
+			this.setFromEmail(ui.getFromEmailFromUser());
+			this.handleUserSelection(UserAction.CREATE_MESSAGE);
+		} else
+			this.handleUserSelection(UserAction.LOAD);
 		while (!isExitTime) {
 			int selection = ui.getMainMenuSelection();
 			this.handleUserSelection(selection);
 		}
 	}
 
-	private void handleUserSelection(int selection) throws IOException {
+	private void handleUserSelection(int selection) throws IOException, ClassNotFoundException {
 		switch (selection) {
 		case UserAction.EXIT:
 			ui.displayString("Exit");
@@ -68,10 +72,27 @@ public class MessageApp {
 		case UserAction.DISPLAY_MESSAGE:
 			ui.displayString(this.msg.toString());
 			break;
+		case UserAction.SAVE:
+			this.handleSave();
+			ui.displayString("Message Save");
+			break;
+		case UserAction.LOAD:
+			this.handleLoad();
+			ui.displayString("Message Loaded");
+			break;
 		default:
 			throw new IllegalArgumentException("unrecognized selection: " + selection);
 		}
 
+	}
+
+	private void handleLoad() throws IOException, ClassNotFoundException {
+		msg = new messageMaker();
+		msg = this.msg.loadMessage();
+	}
+
+	private void handleSave() throws IOException {
+		this.msg.saveMessage(msg);
 	}
 
 	private void handleAddAttachment() throws IOException {

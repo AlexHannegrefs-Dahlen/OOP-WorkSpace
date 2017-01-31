@@ -1,5 +1,0 @@
-package tic.tac.toe.model.board;
-
-public class BoardSpace {
-	private char symbol;
-}

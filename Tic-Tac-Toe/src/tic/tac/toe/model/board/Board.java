@@ -1,8 +1,15 @@
 package tic.tac.toe.model.board;
 
+/**
+ * 
+ * @author Alex Tic Tac Toe Board
+ */
 public class Board {
 	private static BoardSpace[] Boardspaces = new BoardSpace[9];
 
+	/**
+	 * makes new board
+	 */
 	public Board() {
 		for (int i = 0; i < Board.Boardspaces.length; i++) {
 			Boardspaces[i] = new BoardSpace(null, false);
