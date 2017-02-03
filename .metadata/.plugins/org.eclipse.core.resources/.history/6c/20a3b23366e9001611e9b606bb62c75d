@@ -1,0 +1,48 @@
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class TEMP_GUI implements ActionListener {
+	JFrame window = new JFrame("Temp converter");
+
+	JPanel mainpanel = new JPanel();
+
+	JTextField input = new JTextField();
+	JTextField output = new JTextField();
+
+	JButton convert = new JButton("Convert");
+
+	public void initGUI() {
+		mainpanel.setLayout(new GridLayout(0, 3));
+		mainpanel.add(input);
+		mainpanel.add(convert);
+		mainpanel.add(output);
+
+		convert.addActionListener(this);
+
+		window.add(mainpanel);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setSize(400, 200);
+		window.setLocationRelativeTo(null);
+		window.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String temp = input.getText();
+		double FTemp = Double.parseDouble(temp);
+		double CTemp = TEMP_Driver.equations.FtoC(FTemp);
+		double KTemp = TEMP_Driver.equations.FtoK(FTemp);
+		// String Tempoutput = "C: " + String.valueOf(CTemp) + " K: " +
+		// String.valueOf(KTemp);
+		output.setText(String.valueOf(FTemp) + String.valueOf(CTemp) + String.valueOf(KTemp));
+		// output.setText(Tempoutput);
+		// output.setText(String.valueOf(KTemp));
+
+	}
+}

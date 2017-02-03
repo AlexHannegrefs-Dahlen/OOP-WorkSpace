@@ -1,0 +1,10 @@
+
+public class TEMP_Driver {
+	public static TEMP_Equations equations = new TEMP_Equations();
+
+	public static void main(String[] args) {
+		TEMP_GUI gui = new TEMP_GUI();
+		gui.initGUI();
+	}
+
+}

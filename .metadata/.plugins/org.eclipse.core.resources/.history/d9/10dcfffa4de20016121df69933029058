@@ -1,9 +1,0 @@
-
-
-public class OPlayer extends Player {
-
-	public OPlayer(XO type, boolean turn) {
-		super(type, turn);
-	}
-
-}

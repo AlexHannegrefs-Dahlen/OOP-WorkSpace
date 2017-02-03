@@ -6,6 +6,7 @@ import tic.tac.toe.model.board.Board;
 import tic.tac.toe.model.player.OPlayer;
 import tic.tac.toe.model.player.Player;
 import tic.tac.toe.model.player.XPlayer;
+import tic.tac.toe.view.TicTacToeGUI;
 import tic.tac.toe.view.Viewer;
 
 /**
@@ -31,15 +32,19 @@ public class Tic_Tac_Toe {
 	 * start
 	 * 
 	 * @throws IOException
+	 * @throws InterruptedException
 	 */
-	public void run() throws IOException {
+	public void run() throws IOException, InterruptedException {
 		do {
 			gameBoard = new Board();
 			playerX = new XPlayer(true);
 			playerO = new OPlayer(false);
+			TicTacToeGUI GUI = new TicTacToeGUI();
+			GUI.initGui();
 			Player won = null;
 			boolean gameQuit = false;
 			int turnCounter = 0;
+			GUI.showGUI();
 			while (!gameQuit) {
 				Viewer.printBoard();
 				if (playerX.isTurn()) {
@@ -49,6 +54,8 @@ public class Tic_Tac_Toe {
 					Viewer.displayStringToUser("Player O's turn");
 					takeSquareUserSelected(Viewer.getSquareSelection());
 				}
+
+				GUI.buttonUpdater();
 				won = checkForWinner(SQUARE_ONE, SQUARE_TWO, SQUARE_THREE);
 				if (won == null) {
 					won = checkForWinner(SQUARE_FOUR, SQUARE_FIVE, SQUARE_SIX);
@@ -95,12 +102,14 @@ public class Tic_Tac_Toe {
 			return "Player O";
 	}
 
-	private void takeSquareUserSelected(int userSelection) {
-		if (playerX.isTurn())
-			gameBoard.getBoardspaces()[userSelection - 1].setSymbol(playerX);
-		else
-			gameBoard.getBoardspaces()[userSelection - 1].setSymbol(playerO);
-		gameBoard.getBoardspaces()[userSelection - 1].setTaken(true);
+	public static void takeSquareUserSelected(int userSelection) {
+		if (!gameBoard.getBoardspaces()[userSelection - 1].isTaken()) {
+			if (playerX.isTurn())
+				gameBoard.getBoardspaces()[userSelection - 1].setSymbol(playerX);
+			else
+				gameBoard.getBoardspaces()[userSelection - 1].setSymbol(playerO);
+			gameBoard.getBoardspaces()[userSelection - 1].setTaken(true);
+		}
 	}
 
 	private Player checkForWinner(int checkOne, int checkTwo, int checkThree) {

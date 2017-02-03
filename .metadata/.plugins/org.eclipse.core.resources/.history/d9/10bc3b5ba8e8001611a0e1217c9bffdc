@@ -1,0 +1,55 @@
+package tic.tac.toe.view;
+
+import java.awt.GridLayout;
+
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import tic.tac.toe.controller.Tic_Tac_Toe;
+import tic.tac.toe.model.board.Board;
+
+public class TicTacToeGUI {
+	private static JFrame boardWindow;
+
+	private static JPanel mainPanel;
+
+	private static JButton squareOne, squareTwo, squareThree, squareFour, squareFive, squareSix, squareSeven,
+			squareEight, squareNine;
+
+	public static void initGui() {
+		boardWindow = new JFrame("Tic Tac Toe");
+		boardWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		boardWindow.pack();
+		boardWindow.setLocationRelativeTo(null);
+
+		mainPanel = new JPanel(new GridLayout(0, 3));
+		squareOne = new JButton((Icon) Tic_Tac_Toe.getGameBoard().getBoardspaces()[0].getSymbol());
+		squareTwo = new JButton("2");
+		squareThree = new JButton("3");
+		squareFour = new JButton("4");
+		squareFive = new JButton("5");
+		squareSix = new JButton("6");
+		squareSeven = new JButton("7");
+		squareEight = new JButton("8");
+		squareNine = new JButton("9");
+
+		mainPanel.add(squareOne);
+		mainPanel.add(squareTwo);
+		mainPanel.add(squareThree);
+		mainPanel.add(squareFour);
+		mainPanel.add(squareFive);
+		mainPanel.add(squareSix);
+		mainPanel.add(squareSeven);
+		mainPanel.add(squareEight);
+		mainPanel.add(squareNine);
+
+		boardWindow.add(mainPanel);
+
+	}
+
+	public static void showGUI() {
+		boardWindow.setVisible(true);
+	}
+}

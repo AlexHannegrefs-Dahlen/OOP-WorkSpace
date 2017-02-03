@@ -13,8 +13,9 @@ public class runGame {
 	 * 
 	 * @param args
 	 * @throws IOException
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		Tic_Tac_Toe game = new Tic_Tac_Toe();
 		game.run();
 	}

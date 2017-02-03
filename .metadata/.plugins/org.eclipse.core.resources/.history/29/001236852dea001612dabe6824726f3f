@@ -1,0 +1,38 @@
+package yeah.boi;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+public class Drawing extends JPanel implements ActionListener {
+	
+	private Timer timer = new Timer((int)(.5), this);
+
+	private int width = 60, height = 60, x = 200, y = 150;
+
+	public Drawing() {
+		this.setBackground(Color.YELLOW);
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.setColor(Color.BLACK);
+		g.fillOval(x, y, width, height);
+		timer.start();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		x += 10;
+		if(x >= (this.getWidth() - width)){
+			//x *= -1;
+		}
+		this.repaint();
+	}
+}

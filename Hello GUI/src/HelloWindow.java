@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,37 +5,44 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class HelloWindow {
-	public final static int TEXT_FIELD_WIDTH = 10;
-	public final static int TO_BOX_HIEGHT = 4;
-	private static final int ATTACH_BOX_HEIGHT = 2;
-	private static final int TEXT_BOX_HEIGHT = 8;
+public class HelloWindow implements ActionListener {
+	public final int TEXT_FIELD_WIDTH = 16;
+	public final int TO_BOX_HIEGHT = 4;
+	private final int ATTACH_BOX_HEIGHT = 4;
+	private final int TEXT_BOX_HEIGHT = 4;
 
-	private static JFrame window;
+	private JFrame window;
 
-	private static JPanel mainPanel;
+	private JPanel mainPanel;
 
-	private static JLabel createdByLabel, fromLabel, toLabel, subjectLabel, attachLabel, textLabel;
+	private JLabel createdByLabel, fromLabel, toLabel, subjectLabel, attachLabel, textLabel;
 
-	private static JTextField createdByField, fromField, subjectField;
+	private JTextField createdByField, fromField, subjectField;
 
-	private static JTextArea toArea, attachArea, textArea;
+	private JTextArea toArea, attachArea, textArea;
 
-	private static JButton addToButton, addAttachButton;
+	private JButton addToButton, addAttachButton;
 
 	public static void main(String[] args) {
+		HelloWindow myInstance = new HelloWindow();
+		myInstance.guiMain();
+	}
+
+	public void guiMain() {
 		window = new JFrame("Dat window booi");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		initGUI();
-
+		window.pack();
+		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 	}
 
-	private static void initGUI() {
+	private void initGUI() {
 		createdByLabel = new JLabel("Created By:");
 		fromLabel = new JLabel("From:");
 		toLabel = new JLabel("To:");
@@ -53,9 +59,12 @@ public class HelloWindow {
 
 		addToButton = new JButton("Add");
 		addAttachButton = new JButton("Add");
-		
+
+		addToButton.addActionListener(this);
+		addAttachButton.addActionListener(this);
+
 		mainPanel = new JPanel();
-		mainPanel.setLayout(new GridLayout(0, 3));
+		mainPanel.setLayout(new GridLayout(6, 3));
 		mainPanel.add(createdByLabel);
 		mainPanel.add(createdByField);
 		mainPanel.add(new JPanel());
@@ -75,5 +84,13 @@ public class HelloWindow {
 		mainPanel.add(textArea);
 
 		window.getContentPane().add(mainPanel);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == addToButton)
+			JOptionPane.showMessageDialog(window, "Clicked the add to button");
+		else if (e.getSource() == addAttachButton)
+			JOptionPane.showMessageDialog(window, "Clicked the add attachments button");
 	}
 }

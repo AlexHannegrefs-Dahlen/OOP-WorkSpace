@@ -1,0 +1,10 @@
+
+public class TEMP_Equations {
+	public double FtoC(double F) {
+		return ((F - 32) * (5 / 9));
+	}
+
+	public double FtoK(double F) {
+		return ((5/9) * ((F - 32) + 273));
+	}
+}

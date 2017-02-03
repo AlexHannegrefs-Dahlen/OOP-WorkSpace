@@ -1,0 +1,11 @@
+package yeah.boi;
+
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+public class Drawing extends JPanel{
+	public Drawing(){
+		this.setBackground(Color.MAGENTA);
+	}
+}
