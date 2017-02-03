@@ -25,7 +25,7 @@ public class BallsToTheWall {
 		if (this.x >= (rObjectX - width) || this.x < lObjectX) {
 			this.xVel *= -1;
 		}
-		if (this.y >= (rObjectY - height) || this.y < lObjectY) {
+		if (this.y <= (rObjectY - height) || this.y > rObjectY) {
 			this.yVel *= -1;
 		}
 	}

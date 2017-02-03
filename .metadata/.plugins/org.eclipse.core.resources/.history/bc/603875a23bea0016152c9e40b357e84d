@@ -21,7 +21,7 @@ public class Drawing extends JPanel implements ActionListener {
 	}
 
 	public void startAnimation() {
-		balls = BallFactory.newBalls(5, 10, 200, 10, 200, 0, this.getWidth()-200, 0, this.getHeight()-200, 50, 80, 50, 80);
+		balls = BallFactory.newBalls(50, 10, 200, 10, 200, 0, this.getWidth()-200, 0, this.getHeight()-200, 10, 60, 10, 60);
 		timer.start();
 	}
 
