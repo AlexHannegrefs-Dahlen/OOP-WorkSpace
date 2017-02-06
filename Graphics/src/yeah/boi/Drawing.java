@@ -4,9 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import java.util.List;
 
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -17,12 +18,13 @@ public class Drawing extends JPanel implements ActionListener {
 	private List<BallsToTheWall> balls = null;
 
 	public Drawing() {
-		this.setBackground(Color.MAGENTA);
+		this.setBackground(Color.ORANGE);
 	}
 
 	public void startAnimation() {
-		balls = BallFactory.newBalls(5, 10, 200, 10, 200, 0, this.getWidth()-200, 0, this.getHeight()-200, 50, 80, 50, 80);
-		timer.start();
+		balls = BallFactory.newBalls(100, 20, 30, 20, 30, 0, this.getWidth() - 200, 0, this.getHeight() - 200, 50, 80,
+				50, 80);
+		// timer.start();
 	}
 
 	@Override
@@ -38,11 +40,19 @@ public class Drawing extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		for(BallsToTheWall ball: balls){
-			ball.setX(ball.getX() + ball.getxVel());
-			ball.setY(ball.getY() + ball.getyVel());
-			ball.detectCollision(this.getWidth(), this.getHeight(), 0, 0);
+		if (arg0.getSource() == this.timer) {
+			for (BallsToTheWall ball : balls) {
+				ball.setX(ball.getX() + ball.getxVel());
+				ball.setY(ball.getY() + ball.getyVel());
+				ball.detectCollision(this.getWidth(), this.getHeight(), 0, 0);
+			}
+			this.repaint();
+		} else if (arg0.getSource() instanceof JMenuItem) {
+			JMenuItem sourceMenuItem = (JMenuItem) arg0.getSource();
+			if (sourceMenuItem.getText().equals("Start")) {
+				timer.start();
+			} else
+				timer.stop();
 		}
-		this.repaint();
 	}
 }
