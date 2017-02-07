@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="edu.neumont.csc150.messageinterface.controller.MessageApp"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="edu.neumont.csc150.messageinterface.controller.MessageApp.UserAction"/>
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
@@ -44,20 +43,21 @@
 <fullyQualifiedTypeName name="yeah.boi.BallsToTheWall"/>
 <fullyQualifiedTypeName name="java.lang.Thread.State"/>
 <fullyQualifiedTypeName name="tic.tac.toe.view.TicTacToeGUI"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="tic.tac.toe.controller.Tic_Tac_Toe"/>
-<fullyQualifiedTypeName name="javax.swing.JMenu"/>
 <fullyQualifiedTypeName name="java.awt.Menu"/>
-<fullyQualifiedTypeName name="javax.swing.JMenuBar"/>
 <fullyQualifiedTypeName name="java.awt.Graphics"/>
-<fullyQualifiedTypeName name="javax.swing.JMenuItem"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
 <fullyQualifiedTypeName name="tic.tac.toe.model.board.Board"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
-<fullyQualifiedTypeName name="tic.tac.toe.view.GUI"/>
 <fullyQualifiedTypeName name="tic.tac.toe.model.player.Player"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="javax.swing.JMenuBar"/>
+<fullyQualifiedTypeName name="javax.swing.JMenu"/>
+<fullyQualifiedTypeName name="javax.swing.JMenuItem"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="tic.tac.toe.view.GUI"/>
+<fullyQualifiedTypeName name="tic.tac.toe.controller.Tic_Tac_Toe"/>
+<fullyQualifiedTypeName name="tic.tac.toe.runGame"/>
 </qualifiedTypeNameHistroy>
