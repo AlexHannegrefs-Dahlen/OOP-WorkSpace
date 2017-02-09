@@ -1,0 +1,5 @@
+package tic.tac.toe.controller;
+
+public class GUI {
+
+}

@@ -1,0 +1,31 @@
+package pong.view;his
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+import pong.model.ball;
+import pong.model.paddle;
+
+public class Drawing extends JPanel implements ActionListener {
+	private Timer timer = new Timer((1000 / 3), this);
+
+	private static ball ball;
+
+	private static paddle left, right;
+
+	public Drawing() {
+		ball = new ball(this.getWidth() / 2, this.getHeight() / 2, 20, 20, 10, 10, Color.white);
+		left = new paddle(20, (this.getHeight() / 2) - 20, 20, 40, Color.white);
+		right = new paddle(this.getWidth() - 20, (this.getHeight() / 2) - 20, 20, 40, Color.white);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+}

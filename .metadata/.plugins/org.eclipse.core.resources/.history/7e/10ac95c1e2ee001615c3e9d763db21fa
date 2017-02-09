@@ -1,0 +1,18 @@
+package mouse.listerner;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Mouse_GUI {
+	private JFrame frame;
+	private JPanel mainPanel;
+
+	public Mouse_GUI() {
+		frame = new JFrame("Mouse GUI");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
+		mainPanel = new MyPanel();
+		frame.add(mainPanel);
+	}
+}
