@@ -1,0 +1,29 @@
+
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JPanel;
+
+public class KeyList extends JPanel implements KeyListener {
+
+	public KeyList() {
+		this.addKeyListener(this);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		this.setBackground(Color.BLACK);
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		this.setBackground(Color.BLUE);
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		this.setBackground(Color.GREEN);
+	}
+
+}

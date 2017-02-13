@@ -1,0 +1,18 @@
+package tic.tac.toe.model.player;
+
+/**
+ * 
+ * @author Alex
+ * 
+ */
+@SuppressWarnings("serial")
+public class OPlayer extends Player {
+	/**
+	 * 
+	 * @param turn
+	 */
+	public OPlayer(boolean turn) {
+		super(turn);
+	}
+
+}

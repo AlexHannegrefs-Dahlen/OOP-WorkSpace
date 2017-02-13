@@ -1,0 +1,64 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+class MyPanel extends JPanel implements KeyListener {
+	//private char c = 'e';
+	private static JFrame f;
+
+	public MyPanel() {
+		this.setPreferredSize(new Dimension(500, 500));
+		addKeyListener(this);
+	}
+
+	public void addNotify() {
+		super.addNotify();
+		requestFocus();
+	}
+
+	public void paintComponent(Graphics g) {
+		/*g.clearRect(0, 0, getWidth(), getHeight());
+		g.drawString("the key that pressed is " + c, 250, 250);*/
+		f.setBackground(Color.red);
+	}
+
+	public static void main(String[] args) {
+		f = new JFrame();
+		f.getContentPane().add(new MyPanel());
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.pack();
+		f.setVisible(true);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		/*c = arg0.getKeyChar();
+		repaint();*/
+		f.setBackground(Color.WHITE);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		repaint();
+		
+	}
+}

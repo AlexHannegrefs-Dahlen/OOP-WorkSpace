@@ -1,0 +1,22 @@
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class keyGUI {
+	private static JFrame frame;
+	private static KeyList mainPanel;
+	
+
+	public keyGUI() {
+		frame = new JFrame();
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		mainPanel = new KeyList();
+		mainPanel.setBackground(Color.WHITE);
+		frame.add(mainPanel);
+		frame.setVisible(true);
+	}
+
+}

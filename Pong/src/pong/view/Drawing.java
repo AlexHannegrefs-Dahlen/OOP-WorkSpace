@@ -8,21 +8,28 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import pong.model.PongCourt;
 import pong.model.ball;
 import pong.model.paddle;
 
 public class Drawing extends JPanel implements ActionListener {
-	private Timer timer = new Timer((1000 / 3), this);
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Timer timer = new Timer((1000 / 40), this);
 
 	private static ball ball;
 
 	private static paddle left, right;
 
-	public Drawing() {
+	public Drawing(int height, int width) {
 		this.setBackground(Color.black);
-		ball = new ball(this.getWidth() / 2, this.getHeight() / 2, 20, 20, 10, 10, Color.white);
-		left = new paddle(20, (this.getHeight() / 2) - 20, 20, 40, Color.white);
-		right = new paddle(this.getWidth() - 20, (this.getHeight() / 2) - 20, 20, 40, Color.white);
+		ball = new ball(width / 2 + 20, height / 2 - 20, 80, 80, 10, 10, Color.white);
+		left = new paddle(60, height / 2 - 75, 30, 200, Color.white);
+		right = new paddle(width - 110, height / 2 - 75, 30, 200, Color.white);
+		timer.start();
 	}
 
 	public void paint(Graphics g) {
@@ -33,9 +40,25 @@ public class Drawing extends JPanel implements ActionListener {
 		g.fillRect(right.getX(), right.getY(), right.getWidth(), right.getHeight());
 	}
 
+	public static paddle getLeft() {
+		return left;
+	}
+
+	public static paddle getRight() {
+		return right;
+	}
+	
+	public static ball getBall(){
+		return ball;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+		ball.setX(ball.getX() + ball.getxVel());
+		ball.setY(ball.getY() + ball.getyVel());
+		repaint();
+		PongCourt.DetectBallPaddleCollision();
+		PongCourt.DetectBallWallCollision(this.getWidth(), this.getHeight()); 
 	}
+
 }

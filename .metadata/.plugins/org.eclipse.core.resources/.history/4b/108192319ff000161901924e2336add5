@@ -1,0 +1,39 @@
+package pong.view;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+
+public class GUI implements KeyListener{
+	private static JFrame frame;
+
+	public void initGUI() {
+		frame = new JFrame("Pong");
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Drawing drawPane = new Drawing();
+		frame.addKeyListener(this);
+		frame.getContentPane().add(drawPane);
+		frame.setVisible(true);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("Pressed");
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,11 +1,13 @@
 package tic.tac.toe.model.player;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Alex
  *
  */
-public abstract class Player {
+public abstract class Player implements Serializable{
 
 	private boolean turn;
 
