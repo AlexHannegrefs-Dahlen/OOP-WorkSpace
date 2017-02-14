@@ -8,7 +8,7 @@ public class MyReciever implements ISMSReceiver {
 		SMSCommunicationEngine engine = new SMSCommunicationEngine();
 		MyReciever reciever = new MyReciever();
 		engine.registerReceiver(reciever);
-		engine.startReceivingMessages(5);
+		engine.startReceivingMessages(7);
 	}
 
 	@Override
