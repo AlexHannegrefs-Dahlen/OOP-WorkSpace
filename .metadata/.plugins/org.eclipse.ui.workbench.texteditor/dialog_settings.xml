@@ -2,17 +2,21 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="Drawing" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Drawing"/>
+			<item value="Ball"/>
 			<item value="static "/>
 			<item value="package com.hoglezoo.animals;"/>
 			<item value="Passengers"/>
 		</list>
 		<list key="replacehistory">
+			<item value="panel"/>
+			<item value="Drawing.getBall()"/>
 			<item value=""/>
 			<item value=" "/>
 			<item value="Passenger"/>
@@ -22,7 +26,7 @@
 		<item value="277" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="370" key="DIALOG_HEIGHT"/>
-		<item value="508" key="DIALOG_X_ORIGIN"/>
-		<item value="100" key="DIALOG_Y_ORIGIN"/>
+		<item value="981" key="DIALOG_X_ORIGIN"/>
+		<item value="86" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

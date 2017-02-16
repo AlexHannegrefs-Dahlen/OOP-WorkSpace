@@ -1,9 +1,15 @@
 package pong.model;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class paddle {
-	private int x, y, width, height, score;
+public class paddle implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private int x, y, width, height, yVel;
 
 	private Color color;
 
@@ -11,27 +17,43 @@ public class paddle {
 
 	}
 
-	public paddle(int x, int y, int width, int height, Color color) {
+	/**
+	 * 
+	 * @param x
+	 *            the x of the paddle
+	 * @param y
+	 *            the y of the paddle
+	 * @param width
+	 *            the width of the paddle
+	 * @param height
+	 *            the height of the paddle
+	 * @param vVel
+	 *            the velocity on the y axis of the paddle
+	 * @param color
+	 *            the color of the paddle
+	 */
+	public paddle(int x, int y, int width, int height, int yVel, Color color) {
 		this.setX(x);
 		this.setY(y);
 		this.setWidth(width);
 		this.setHeight(height);
+		this.setyVel(yVel);
 		this.setColor(color);
 	}
 
 	/**
-	 * @return the score
+	 * @return the yVel
 	 */
-	public int getScore() {
-		return score;
+	public int getyVel() {
+		return yVel;
 	}
 
 	/**
-	 * @param score
-	 *            the score to set
+	 * @param yVel
+	 *            the yVel to set
 	 */
-	public void setScore(int score) {
-		this.score = score;
+	public void setyVel(int yVel) {
+		this.yVel = yVel;
 	}
 
 	/**

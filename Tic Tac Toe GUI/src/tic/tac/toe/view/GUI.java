@@ -23,6 +23,11 @@ import tic.tac.toe.model.player.OPlayer;
 import tic.tac.toe.model.player.XPlayer;
 
 public class GUI implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private static JFrame frame;
 
 	private static JPanel mainPanel;

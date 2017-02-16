@@ -6,9 +6,8 @@ import edu.neumont.csc150.TextMessageReceiverExercise.SMSCommunicationEngine;
 public class MyReciever implements ISMSReceiver {
 	public static void main(String[] args) {
 		SMSCommunicationEngine engine = new SMSCommunicationEngine();
-		MyReciever reciever = new MyReciever();
-		engine.registerReceiver(reciever);
-		engine.startReceivingMessages(5);
+		engine.registerReceiver(new MyReciever());
+		engine.startReceivingMessages(9999);
 	}
 
 	@Override

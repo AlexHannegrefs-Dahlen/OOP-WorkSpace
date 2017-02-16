@@ -13,6 +13,11 @@ import javax.swing.Timer;
 
 public class Drawing extends JPanel implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Timer timer = new Timer((int) (1000 / 30), this);
 
 	private List<BallsToTheWall> balls = null;

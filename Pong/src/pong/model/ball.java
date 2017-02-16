@@ -1,8 +1,14 @@
 package pong.model;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class ball {
+public class ball implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int x, y, middleX, middleY, width, height, xVel, yVel;
 
 	private Color color;
@@ -11,6 +17,23 @@ public class ball {
 
 	}
 
+	/**
+	 * 
+	 * @param x
+	 *            the x location for the ball
+	 * @param y
+	 *            the y location for the ball
+	 * @param width
+	 *            the width of the ball
+	 * @param height
+	 *            the height of the ball
+	 * @param xVel
+	 *            the balls x velocity
+	 * @param yVel
+	 *            the balls y velocity
+	 * @param color
+	 *            the color of the ball
+	 */
 	public ball(int x, int y, int width, int height, int xVel, int yVel, Color color) {
 		this.setX(x);
 		this.setMiddleX(x);
@@ -23,16 +46,29 @@ public class ball {
 		this.setColor(color);
 	}
 
+	/**
+	 * resets the ball to the middle
+	 */
 	public void resetBall() {
 		this.setX(middleX);
 		this.setY(middleY);
 		this.setxVel(-this.getxVel());
 	}
 
+	/**
+	 * 
+	 * @param middleX
+	 *            the middle x location sets the balls x to the middle
+	 */
 	private void setMiddleX(int middleX) {
 		this.middleX = middleX;
 	}
 
+	/**
+	 * 
+	 * @param middleY
+	 *            the middle y location sets the ball to the middle
+	 */
 	private void setMiddleY(int middleY) {
 		this.middleY = middleY;
 	}

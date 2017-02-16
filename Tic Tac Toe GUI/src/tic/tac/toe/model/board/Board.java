@@ -7,6 +7,11 @@ import java.io.Serializable;
  * @author Alex Tic Tac Toe Board
  */
 public class Board implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private static BoardSpace[] Boardspaces = new BoardSpace[9];
 
 	/**
