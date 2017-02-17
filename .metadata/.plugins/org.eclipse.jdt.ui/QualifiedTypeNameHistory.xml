@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.swing.JLabel"/>
-<fullyQualifiedTypeName name="javax.swing.JButton"/>
-<fullyQualifiedTypeName name="tic.tac.toe.controller.Controller"/>
-<fullyQualifiedTypeName name="java.util.ResourceBundle.Control"/>
 <fullyQualifiedTypeName name="javax.sound.sampled.Control"/>
 <fullyQualifiedTypeName name="de.hardcode.jxinput.virtual.JXVirtualInputDevice"/>
 <fullyQualifiedTypeName name="de.hardcode.jxinput.keyboard.JXKeyboardInputDevice"/>
 <fullyQualifiedTypeName name="java.awt.Button"/>
-<fullyQualifiedTypeName name="javax.sound.midi.ControllerEventListener"/>
 <fullyQualifiedTypeName name="de.hardcode.jxinput.event.JXInputButtonEventListener"/>
 <fullyQualifiedTypeName name="de.hardcode.jxinput.JXInputDevice"/>
 <fullyQualifiedTypeName name="de.hardcode.jxinput.JXInputManager"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="pong.model.ball"/>
 <fullyQualifiedTypeName name="pong.model.paddle"/>
 <fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="javax.sound.midi.ControllerEventListener"/>
+<fullyQualifiedTypeName name="net.java.games.input.ControllerListener"/>
+<fullyQualifiedTypeName name="net.java.games.input.ControllerEvent"/>
+<fullyQualifiedTypeName name="net.java.games.input.ControllerEnvironment"/>
+<fullyQualifiedTypeName name="edu.neumont.csc150.myClass.messageMaker"/>
 </qualifiedTypeNameHistroy>
