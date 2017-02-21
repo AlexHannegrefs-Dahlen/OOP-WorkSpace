@@ -9,6 +9,11 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 
 public class MyPanel extends JPanel implements MouseListener, MouseMotionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int x = 50, y = 50, width = 60, height = 60;
 
 	private boolean inDraggingModeOrSomethingLikeThat = false;

@@ -10,5 +10,4 @@ public class MessageSender {
 		MessageApp app= new MessageApp();
 		app.run();
 	}
-
 }

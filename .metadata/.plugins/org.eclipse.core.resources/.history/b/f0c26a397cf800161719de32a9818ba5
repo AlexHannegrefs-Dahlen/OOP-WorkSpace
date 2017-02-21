@@ -1,0 +1,11 @@
+
+public class Tower_Solver {
+
+	public static void main(String[] args) {
+		solve(1);
+	}
+	
+	private static void solve(int n){
+		solve(n-1);
+	}
+}
