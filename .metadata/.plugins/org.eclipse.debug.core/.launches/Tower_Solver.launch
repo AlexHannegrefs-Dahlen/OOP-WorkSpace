@@ -10,6 +10,6 @@
 <mapEntry key="numOfDiscs" value="1"/>
 </mapAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Tower_Solver"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="2"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="3"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Towers of Hanoi"/>
 </launchConfiguration>

@@ -1,0 +1,16 @@
+package arcade.frenzy.model.game;
+
+import arcade.frenzy.model.main.menu.Main_Menu;
+
+public class Jump_The_Car extends Base_Game{
+
+	public Jump_The_Car(Main_Menu game) {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+}

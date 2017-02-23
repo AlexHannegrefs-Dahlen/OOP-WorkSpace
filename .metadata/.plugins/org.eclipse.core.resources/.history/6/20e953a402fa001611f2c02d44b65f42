@@ -1,0 +1,14 @@
+package arcade.frenzy.model.game;
+
+import arcade.frenzy.controller.ButtonNames;
+import arcade.frenzy.controller.Main_Controller;
+
+public class Frenzy_Mode {
+
+	public Frenzy_Mode(Main_Controller main_Controller) throws InterruptedException {
+		main_Controller.handleButtonClicked(ButtonNames.Collect_The_Coins);
+		Thread.sleep(100);
+		main_Controller.handleButtonClicked(ButtonNames.Frogger);
+	}
+
+}

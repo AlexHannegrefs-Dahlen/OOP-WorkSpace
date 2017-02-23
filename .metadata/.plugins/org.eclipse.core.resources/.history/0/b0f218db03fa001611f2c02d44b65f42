@@ -1,0 +1,18 @@
+package arcade.frenzy.model.game;
+
+import arcade.frenzy.controller.ButtonNames;
+import arcade.frenzy.controller.Main_Controller;
+import arcade.frenzy.model.main.menu.Main_Menu;
+
+public class Frenzy_Mode {
+
+	public Frenzy_Mode(Main_Controller main_Controller, Main_Menu game, Collect_The_Coins coins, Tree_Climber climber, Frogger frogger, Get_Down down, Jump_The_Car carJumper) throws InterruptedException {
+		main_Controller.handleButtonClicked(ButtonNames.Collect_The_Coins);
+		//game.getMainScreen().setVisible(true);
+		Thread.sleep(100);
+		//System.out.println(game.getMainScreen().getComponentCount());
+		main_Controller.handleButtonClicked(ButtonNames.Frogger);
+		game.getMainScreen().remove(game.getMainScreen().getComponentCount()-(game.getMainScreen().getComponentCount()-1));
+	}
+
+}

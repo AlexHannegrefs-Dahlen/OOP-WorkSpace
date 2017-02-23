@@ -1,0 +1,20 @@
+package arcade.frenzy.model.game;
+
+import arcade.frenzy.model.main.menu.Main_Menu;
+
+public class Frenzy_Mode {
+
+	public Frenzy_Mode(Main_Menu game, Collect_The_Coins coins, Tree_Climber climber, Frogger frogger, Get_Down down,
+			Jump_The_Car carJumper) throws InterruptedException {
+		coins = new Collect_The_Coins(game);
+		Thread.sleep(100);
+		climber = new Tree_Climber(game);
+		Thread.sleep(100);
+		frogger = new Frogger(game);
+		Thread.sleep(100);
+		down = new Get_Down(game);
+		Thread.sleep(100);
+		carJumper = new Jump_The_Car(game);
+	}
+
+}

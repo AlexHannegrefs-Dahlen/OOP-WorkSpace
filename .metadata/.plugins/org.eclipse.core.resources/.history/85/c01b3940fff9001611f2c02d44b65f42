@@ -1,0 +1,11 @@
+package arcade.frenzy.model.game;
+
+import arcade.frenzy.model.main.menu.Main_Menu;
+
+public class Frenzy_Mode {
+
+	public Frenzy_Mode(Main_Menu game) {
+		// TODO Auto-generated constructor stub
+	}
+
+}
