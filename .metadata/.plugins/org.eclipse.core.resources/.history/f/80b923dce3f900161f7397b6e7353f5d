@@ -1,0 +1,82 @@
+package arcade.frenzy.model.main.menu;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Main_Menu implements ActionListener {
+	private JFrame mainScreen;
+
+	private JPanel mainPanel, buttonPanelLeft, buttonPanelRight;
+
+	private JButton collectTheCoins, frogger, getDown, jumpTheCar, treeClimber, frenzyMode;
+
+	public void init() {
+		mainScreen = new JFrame("Arcade Frenzy");
+		mainPanel = new JPanel(new BorderLayout());
+
+		buttonPanelLeft = new JPanel();
+		buttonPanelLeft.setLayout(new BoxLayout(buttonPanelLeft, BoxLayout.Y_AXIS));
+
+		collectTheCoins = new JButton("Collect the Coins");
+		collectTheCoins.addActionListener(this);
+		buttonPanelLeft.add(collectTheCoins);
+
+		frogger = new JButton("Frogger");
+		frogger.addActionListener(this);
+		buttonPanelLeft.add(frogger);
+
+		getDown = new JButton("Get Down");
+		getDown.addActionListener(this);
+		buttonPanelLeft.add(getDown);
+
+		buttonPanelRight = new JPanel();
+		buttonPanelRight.setLayout(new BoxLayout(buttonPanelRight, BoxLayout.Y_AXIS));
+
+		jumpTheCar = new JButton("Jump the Car");
+		jumpTheCar.addActionListener(this);
+		buttonPanelRight.add(jumpTheCar);
+
+		treeClimber = new JButton("Tree Climber");
+		treeClimber.addActionListener(this);
+		buttonPanelRight.add(treeClimber);
+
+		frenzyMode = new JButton("Frenzy Mode");
+		frenzyMode.addActionListener(this);
+		buttonPanelRight.add(frenzyMode);
+
+		mainPanel.add(buttonPanelLeft, BorderLayout.WEST);
+		mainPanel.add(buttonPanelRight, BorderLayout.EAST);
+
+		mainScreen.add(mainPanel);
+		mainScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainScreen.setLocationRelativeTo(null);
+		mainScreen.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		mainScreen.setVisible(true);
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == collectTheCoins) {
+
+		} else if (e.getSource() == frogger) {
+
+		} else if (e.getSource() == getDown) {
+
+		} else if (e.getSource() == jumpTheCar) {
+
+		} else if (e.getSource() == treeClimber) {
+
+		} else if (e.getSource() == frenzyMode) {
+
+		}
+
+	}
+
+}

@@ -4,6 +4,7 @@ public class Recursion {
 
 	public static void main(String[] args) {
 		printHelloR(5);
+		printHello(5);
 	}
 
 	private static void printHelloR(int r) {

@@ -1,0 +1,12 @@
+package arcade.frenzy.model.game;
+
+import javax.swing.JPanel;
+
+public class Base_Game extends JPanel implements Game_Interface {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+}

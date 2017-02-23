@@ -1,3 +1,7 @@
 1487616450832	Move compilation unit
 1487616466056	Delete element
 1487647177389	Rename package 'arcade.frenzy.games'
+1487867598450	Rename type 'FrenzyMode'
+1487868396434	Rename package 'arcade.frenzy.model.games'
+1487869327948	Rename type 'player'
+1487869569057	Delete element

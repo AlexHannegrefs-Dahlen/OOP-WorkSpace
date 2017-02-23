@@ -1,0 +1,5 @@
+package arcade.frenzy.model.player;
+
+public interface Player_I {
+	int x, y, width, height, xVel, yVel ;
+}

@@ -1,0 +1,20 @@
+
+public class Tower_Solver {
+
+	private final int numOfDiscs = 3;
+	
+	public void solve(int n, String pegOne, String pegTwo, String pegThree) {
+	       if (n == 1) {
+	           System.out.println(pegOne + " <-> " + pegThree);
+	       } else {
+	           solve(n - 1, pegOne, pegThree, pegTwo);
+	           System.out.println(pegOne + " <-> " + pegThree);
+	           solve(n - 1, pegTwo, pegOne, pegThree);
+	       }
+	   }
+
+	   public static void main(String[] args) {
+	       Tower_Solver towersOfHanoi = new Tower_Solver();
+	       towersOfHanoi.solve(towersOfHanoi.numOfDiscs, "Peg One", "Peg Two", "Peg Three");
+	   }
+}

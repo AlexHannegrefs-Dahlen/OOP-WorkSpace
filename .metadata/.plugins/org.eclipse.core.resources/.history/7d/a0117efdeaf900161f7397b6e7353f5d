@@ -1,0 +1,6 @@
+package arcade.frenzy.model.player;
+
+public class Player {
+	int xLoc, yLoc, width, height, xVel, yVel;
+	
+}

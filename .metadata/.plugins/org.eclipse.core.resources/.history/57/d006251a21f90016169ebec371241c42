@@ -1,0 +1,40 @@
+package arcade.frenzy.model.main.menu;
+
+import java.awt.BorderLayout;
+import java.awt.Component;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Main_Menu {
+	private JFrame mainScreen;
+	
+	private JPanel mainPanel, buttonPanelLeft, buttonPanelRight;
+	
+	private JButton collectTheCoins, frogger, getDown, jumpTheCar, treeClimber, frenzyMode;
+	
+	
+	
+	public void init() {
+		mainScreen = new JFrame("Arcade Frenzy");
+		mainPanel = new JPanel(new BorderLayout());
+		
+		buttonPanelLeft = new JPanel(new BoxLayout(buttonPanelLeft, BoxLayout.Y_AXIS));
+		collectTheCoins = new JButton("Collect the Coins");
+		buttonPanelLeft.add(collectTheCoins);
+		
+		
+		buttonPanelRight = new JPanel(new BoxLayout(buttonPanelRight, BoxLayout.Y_AXIS));
+		
+		mainPanel.add(buttonPanelLeft, BorderLayout.WEST);
+		
+		mainScreen.add(mainPanel);
+		mainScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainScreen.setLocationRelativeTo(null);
+		mainScreen.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
+	}
+	
+}

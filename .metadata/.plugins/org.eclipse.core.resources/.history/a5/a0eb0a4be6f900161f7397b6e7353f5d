@@ -1,0 +1,12 @@
+package arcade.frenzy.model.games;
+
+import javax.swing.JPanel;
+
+public class Collect_The_Coins extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+}

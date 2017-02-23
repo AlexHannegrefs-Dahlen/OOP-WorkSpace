@@ -1,0 +1,9 @@
+package arcade.frenzy.controller;
+
+public class Main_Controller {
+
+	public void start() {
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package arcade.frenzy.model.games;
+
+public class Frenzy_Mode {
+
+}

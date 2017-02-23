@@ -1,0 +1,18 @@
+
+public class Tower_Solver {
+
+	public void moveDisc(int n, String pegOne, String pegTwo, String pegThree) {
+		if (n == 1) {
+			System.out.println(pegOne + " -------> " + pegThree);
+		} else {
+			moveDisc(n - 1, pegOne, pegThree, pegTwo);
+			System.out.println(pegOne + " -----> " + pegThree);
+			moveDisc(n - 1, pegTwo, pegOne, pegThree);
+		}
+	}
+
+	public static void main(String[] args) {
+		Tower_Solver towersOfHanoi = new Tower_Solver();
+		towersOfHanoi.moveDisc(Integer.parseInt(args[0]), "Peg One", "Peg Two", "Peg Three");
+	}
+}

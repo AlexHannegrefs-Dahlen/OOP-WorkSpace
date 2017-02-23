@@ -1,0 +1,10 @@
+package arcade.frenzy.model.games;
+
+public class Jump_The_Car extends Base_Game{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+}
