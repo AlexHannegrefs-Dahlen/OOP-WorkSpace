@@ -1,0 +1,60 @@
+package arcade.frenzy.controller;
+
+
+import arcade.frenzy.model.player.Player;
+import arcade.frenzy.view.game.Collect_The_Coins;
+import arcade.frenzy.view.game.Frenzy_Mode;
+import arcade.frenzy.view.game.Frogger;
+import arcade.frenzy.view.game.Get_Down;
+import arcade.frenzy.view.game.Jump_The_Car;
+import arcade.frenzy.view.game.Tree_Climber;
+import arcade.frenzy.view.main.menu.Main_Menu;
+
+public class Main_Controller {
+	private String playersName;
+
+	private Player player;
+	private Collect_The_Coins coins;
+	private Tree_Climber climber;
+	private Frogger frogger;
+	private Get_Down down;
+	private Jump_The_Car carJumper;
+	private Frenzy_Mode frenzy;
+	private Main_Menu game;
+
+	public void start() {
+		game = new Main_Menu();
+		game.init(this);
+		player = new Player(playersName);
+	}
+
+	public void handleButtonClicked(ButtonNames buttonClicked) throws InterruptedException {
+		if (game.getMainPanel().isVisible())
+			game.getMainPanel().setVisible(false);
+
+		switch (buttonClicked) {
+		case Collect_The_Coins:
+			this.coins = new Collect_The_Coins(game);
+			break;
+		case Tree_Climber:
+			this.climber = new Tree_Climber(game, player);
+			break;
+		case Frogger:
+			this.frogger = new Frogger(game);
+			break;
+		case Get_Down:
+			this.down = new Get_Down(game);
+			break;
+		case Jump_The_Car:
+			this.carJumper = new Jump_The_Car(game, player);
+			break;
+		case Frenzy_Mode:
+			this.frenzy = new Frenzy_Mode(this, game);
+			break;
+		default:
+			break;
+		}
+
+	}
+
+}

@@ -6,7 +6,5 @@ package com.neumont.csc150.airplace;
  *
  */
 public enum Rank {
-	SeniorCap,
-	Cap,
-	CoPilot
+	SeniorCap, Cap, CoPilot
 }

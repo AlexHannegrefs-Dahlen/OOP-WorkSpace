@@ -1,0 +1,16 @@
+package arcade.frenzy.view.game;
+
+public interface Game_Interface {
+
+	void detectCollisionLeftWall(int PxLoc, int PyLoc, int Pwidth, int Pheight, int OxLoc, int OyLoc, int Owidth,
+			int Oheight);
+
+	void detectCollisionRightWall(int PxLoc, int PyLoc, int Pwidth, int Pheight, int OxLoc, int OyLoc, int Owidth,
+			int Oheight);
+
+	void detectCollisionTopWall(int PxLoc, int PyLoc, int Pwidth, int Pheight, int OxLoc, int OyLoc, int Owidth,
+			int Oheight);
+
+	void detectCollisionRightWall(int PxLoc, int PyLoc, int Pwidth, int Pheight, int OxLoc, int OyLoc, int Owidth,
+			int Oheight);
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;arcade.frenzy.view.game.Base_Game.timer&apos; in &apos;arcade.frenzy.view.game.Base_Game&apos;&#x0D;&#x0A;- Original project: &apos;Arcade Fenzy OOP Final&apos;&#x0D;&#x0A;- Original element: &apos;arcade.frenzy.view.game.Base_Game.timer&apos;&#x0D;&#x0A;- Getter method name: &apos;getTimer&apos;&#x0D;&#x0A;- Setter method name: &apos;setTimer&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type&#x0D;&#x0A;- Generate method comments" comments="true" declaring="true" description="Encapsulate field &apos;timer&apos;" flags="589830" getter="getTimer" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;arcade.frenzy.view.game{Base_Game.java[Base_Game^timer" insertion="8" setter="setTimer" stamp="1488299078616" version="1.0" visibility="1"/>
+</session>

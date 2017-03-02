@@ -1,0 +1,5 @@
+1488401112597	Rename type 'ButtonNames'
+1488406893977	Rename package 'acade.frenzy.model.object_cration'
+1488406949182	Encapsulate field 'objectCreator'
+1488407055602	Encapsulate field 'objectCreation'
+1488407186907	Rename type 'Object_Creation'
