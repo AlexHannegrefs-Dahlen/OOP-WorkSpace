@@ -2,30 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="Object_Creater" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Object_Creator"/>
+			<item value="Owidth"/>
+			<item value="Oheight"/>
+			<item value="OxLoc"/>
+			<item value="OyLoc"/>
 			<item value="int PxLoc, int PyLoc, int Pwidth, int Pheight, "/>
 			<item value="void detectCollisionObjectOutBottomWall(int PxLoc, int PyLoc, int Pwidth, int Pheight, int OxLoc, int OyLoc, int Owidth,"/>
 			<item value="Out"/>
-			<item value="Object"/>
-			<item value="void"/>
-			<item value="Drawing"/>
-			<item value="Ball"/>
-			<item value="static "/>
 		</list>
 		<list key="replacehistory">
+			<item value="Object_Creater"/>
+			<item value="object.getWidth()"/>
+			<item value="object.getHight()"/>
+			<item value="object.getX_Loaction()"/>
+			<item value="object.getY_Loaction()"/>
 			<item value=""/>
 			<item value="Outside"/>
 			<item value="Player"/>
-			<item value="boolean"/>
-			<item value="panel"/>
-			<item value="Drawing.getBall()"/>
-			<item value=" "/>
-			<item value="Passenger"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

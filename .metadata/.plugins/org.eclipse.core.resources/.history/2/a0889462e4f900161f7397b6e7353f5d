@@ -1,5 +1,0 @@
-package arcade.frenzy.controller;
-
-public enum ButtonNames {
-
-}

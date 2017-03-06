@@ -1,23 +1,23 @@
 package arcade.frenzy.view.game;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 
-import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import acade.frenzy.model.object_creation.Object_Creater;
+import acade.frenzy.model.object_creation.Object_Creator;
 import arcade.frenzy.model.player.Player;
+import arcade.frenzy.view.main.menu.BackgroundPanel;
 import arcade.frenzy.view.main.menu.Main_Menu;
 
-public abstract class Base_Game extends JPanel
-		/* Backgroundpanel */ implements Game_Interface, KeyListener, ActionListener {
+public abstract class Base_Game extends BackgroundPanel implements Game_Interface, KeyListener, ActionListener {
 	private Player player;
 
 	private Main_Menu game;
 
-	private Timer timer = new Timer(5, this);
+	private Timer timer = new Timer(50 / 3, this);
 	/**
 	 * 
 	 */
@@ -27,7 +27,12 @@ public abstract class Base_Game extends JPanel
 
 	}
 
-	public Base_Game(Player player) {
+	public Base_Game(Image image) {
+		super(image);
+	}
+
+	public Base_Game(Player player, Image image) {
+		super(image);
 		this.player = player;
 	}
 
@@ -71,71 +76,58 @@ public abstract class Base_Game extends JPanel
 	}
 
 	@Override
-	public boolean detectCollisionPlayerOutsideBottomWall(int OxLoc, int OyLoc, int Owidth, int Oheight) {
-		if (OyLoc + Oheight > this.getPlayer().getyLoc()
-				&& this.getPlayer().getyLoc() + this.getPlayer().getHeight() > OyLoc
-				&& OxLoc <= this.getPlayer().getxLoc() + this.getPlayer().getWidth()
-				&& OxLoc + Owidth >= this.getPlayer().getxLoc())
+	public boolean detectCollisionPlayerOutsideBottomWall(Object_Creator object) {
+		if (object.getX_Location() <= this.getPlayer().getxLoc() + this.getPlayer().getWidth()
+				&& object.getX_Location() + object.getWidth() >= this.getPlayer().getxLoc())
+			if (this.getPlayer().getyLoc() <= object.getY_Location() + object.getHeight()
+					&& this.getPlayer().getyLoc() + this.getPlayer().getHeight() >= object.getY_Location())
+				return true;
+			else
+				return false;
+		else
+			return false;
+	}
+
+	@Override
+	public boolean detectCollisionPlayerOutsideTopWall(Object_Creator object) {
+		if (this.getPlayer().getyLoc() > object.getY_Location())
+			return false;
+		if (this.getPlayer().getyLoc() + this.getPlayer().getHeight() >= object.getY_Location()
+				&& this.getPlayer().getyLoc() + this.getPlayer().getHeight() + this.getPlayer().getyVel() > object
+						.getY_Location()
+				&& object.getX_Location() <= this.getPlayer().getxLoc() + this.getPlayer().getWidth()
+				&& object.getX_Location() + object.getWidth() >= this.getPlayer().getxLoc())
 			return true;
 		else
 			return false;
 	}
 
 	@Override
-	public boolean detectCollisionPlayerOutsideTopWall(int OxLoc, int OyLoc, int Owidth, int Oheight) {
-		if (this.getPlayer().getyLoc() + this.getPlayer().getHeight() >= OyLoc
-				&& this.getPlayer().getyLoc() < OyLoc + Oheight
-				&& OxLoc <= this.getPlayer().getxLoc() + this.getPlayer().getWidth()
-				&& OxLoc + Owidth >= this.getPlayer().getxLoc())
+	public boolean detectCollisionPlayerOutsideRightWall(Object_Creator object) {
+		if (this.getPlayer().getxLoc() < object.getX_Location())
+			return false;
+		if (object.getX_Location() + object.getWidth() >= this.getPlayer().getxLoc()
+				&& this.getPlayer().getxLoc() - this.getPlayer().getxVel() < object.getX_Location() + object.getWidth()
+				&& this.getPlayer().getxLoc() <= object.getX_Location() + object.getWidth()
+				&& this.getPlayer().getyLoc() + this.getPlayer().getHeight() >= object.getY_Location()
+				&& this.getPlayer().getyLoc() <= object.getY_Location() + object.getHeight())
 			return true;
 		else
 			return false;
 	}
 
 	@Override
-	public boolean detectCollisionPlayerOutsideRightWall(int OxLoc, int OyLoc, int Owidth, int Oheight) {
-		if (OxLoc + Owidth >= this.getPlayer().getxLoc()
-				// && this.
-				&& this.getPlayer().getyLoc() + this.getPlayer().getHeight() >= OyLoc
-				&& this.getPlayer().getyLoc() <= OyLoc + Oheight)
-			return true;
+	public boolean detectCollisionPlayerOutsideLeftWall(Object_Creator object) {
+		if (this.getPlayer().getyLoc() + this.getPlayer().getHeight() >= object.getY_Location()
+				&& this.getPlayer().getyLoc() <= object.getY_Location() + object.getHeight())
+			if (this.getPlayer().getxLoc() + this.getPlayer().getWidth() >= object.getX_Location()
+					&& this.getPlayer().getxLoc() + this.getPlayer().getWidth() <= object.getX_Location()
+							+ object.getWidth())
+				return true;
+			else
+				return false;
 		else
 			return false;
-	}
-
-	@Override
-	public boolean detectCollisionPlayerOutsideLeftWall(int OxLoc, int OyLoc, int Owidth, int Oheight) {
-		if (this.getPlayer().getxLoc() + this.getPlayer().getWidth() >= OxLoc
-				&& this.getPlayer().getxLoc() + this.getPlayer().getWidth() < OxLoc
-				&& this.getPlayer().getyLoc() + this.getPlayer().getHeight() >= OyLoc
-				&& this.getPlayer().getyLoc() <= OyLoc + Oheight)
-			return true;
-		else
-			return false;
-	}
-
-	public boolean detectCollisionPlayerOutside(Object_Creater object) {
-		boolean returnVal = false;
-		
-		if (this.getPlayer().getxLoc() + this.getPlayer().getWidth() >= object.getX_Loaction() && this.getPlayer()
-				.getxLoc() <= object.getY_Loaction() + object.getHight() - this.getPlayer().getyVel()) {
-			if () {
-				returnVal = true;
-			}
-			if(){
-				returnVal = true;
-			}
-		} else
-			returnVal = false;
-		if () {
-			if(){
-				returnVal = true;
-			}
-			if(){
-				returnVal = true;
-			}
-		} else
-			returnVal = false;
 	}
 
 	public Main_Menu getGame() {
@@ -174,6 +166,13 @@ public abstract class Base_Game extends JPanel
 	 */
 	public void setTimer(Timer timer) {
 		this.timer = timer;
+	}
+
+	public void gameOver(Base_Game gamePlayed) {
+		this.getGame().getMainScreen().remove(gamePlayed);
+		this.getGame().getMainPanel().setVisible(true);
+		this.getGame().getMainPanel().setFocusable(true);
+		this.getGame().getMainPanel().requestFocusInWindow();
 	}
 
 }

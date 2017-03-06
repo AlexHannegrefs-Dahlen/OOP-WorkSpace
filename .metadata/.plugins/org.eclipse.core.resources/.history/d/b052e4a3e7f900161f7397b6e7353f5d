@@ -1,5 +1,0 @@
-package arcade.frenzy.model.games;
-
-public interface Game_Interface {
-
-}

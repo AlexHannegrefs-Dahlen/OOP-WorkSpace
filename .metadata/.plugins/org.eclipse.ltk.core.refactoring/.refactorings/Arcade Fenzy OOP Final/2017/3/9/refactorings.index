@@ -3,3 +3,9 @@
 1488406949182	Encapsulate field 'objectCreator'
 1488407055602	Encapsulate field 'objectCreation'
 1488407186907	Rename type 'Object_Creation'
+1488519755979	Rename type 'Object_Creator'
+1488568751498	Encapsulate field 'frenzy'
+1488572740030	Encapsulate field 'con'
+1488593420825	Encapsulate field 'picture'
+1488597539318	Delete element
+1488597544517	Delete element

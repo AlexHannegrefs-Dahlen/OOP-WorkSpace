@@ -1,7 +1,0 @@
-package arcade.frenzy.model.game;
-
-public interface Game_Interface {
-	public static void detectCollision() {
-
-	}
-}

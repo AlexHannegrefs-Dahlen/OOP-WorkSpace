@@ -1,6 +1,7 @@
 package arcade.frenzy.view.main.menu;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -17,6 +18,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
@@ -33,9 +35,9 @@ public class Main_Menu implements ActionListener {
 
 	private JFrame mainScreen;
 
-	private BackgroundPanel mainPanel;
+	private BackgroundPanel centerPanel;
 
-	private JPanel buttonPanelLeft, buttonPanelRight;
+	private JPanel mainPanel, buttonPanelLeft, buttonPanelRight;
 
 	private JButton collectTheCoins, frogger, getDown, jumpTheCar, treeClimber, frenzyMode, getName;
 
@@ -51,6 +53,8 @@ public class Main_Menu implements ActionListener {
 
 	private File backgroundImgFile;
 
+	private boolean frenzy;
+
 	/**
 	 * Makes the Main Screen JFrame and JPanel, sets the JFrame to visible
 	 * 
@@ -65,14 +69,18 @@ public class Main_Menu implements ActionListener {
 
 		mainScreen = new JFrame("Arcade Frenzy");
 
-		backgroundImgFile = new File("BlankScreen.png");
+		backgroundImgFile = new File("Background.jpg");
 		try {
 			backgroundImg = ImageIO.read(backgroundImgFile);
 		} catch (IOException e) {
+			System.out.println("Not found");
 		}
 
-		mainPanel = new BackgroundPanel(backgroundImg);
+		mainPanel = new JPanel();
 		mainPanel.setLayout(new BorderLayout());
+
+		centerPanel = new BackgroundPanel(backgroundImg);
+		mainPanel.add(centerPanel, BorderLayout.CENTER);
 
 		viewScores = new JMenuItem("View Highscores");
 		viewScores.addActionListener(this);
@@ -93,7 +101,8 @@ public class Main_Menu implements ActionListener {
 		collectTheCoins.addActionListener(this);
 		buttonPanelLeft.add(collectTheCoins);
 
-		nameEntry = new JTextField(0);
+		nameEntry = new JTextField("Enter Text");
+		nameEntry.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 150));
 		buttonPanelLeft.add(nameEntry);
 
 		getName = new JButton("Update name");
@@ -139,37 +148,38 @@ public class Main_Menu implements ActionListener {
 		if (e.getSource() == collectTheCoins)
 			try {
 				this.con.handleButtonClicked(GameNames.Collect_The_Coins);
-			} catch (InterruptedException e1) {
+			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
 		else if (e.getSource() == frogger)
 			try {
 				this.con.handleButtonClicked(GameNames.Frogger);
-			} catch (InterruptedException e1) {
+			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
 		else if (e.getSource() == getDown)
 			try {
 				this.con.handleButtonClicked(GameNames.Get_Down);
-			} catch (InterruptedException e1) {
+			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
 		else if (e.getSource() == jumpTheCar)
 			try {
 				this.con.handleButtonClicked(GameNames.Jump_The_Car);
-			} catch (InterruptedException e2) {
+			} catch (InterruptedException | IOException e2) {
 				e2.printStackTrace();
 			}
 		else if (e.getSource() == treeClimber)
 			try {
 				this.con.handleButtonClicked(GameNames.Tree_Climber);
-			} catch (InterruptedException e1) {
+			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
 		else if (e.getSource() == frenzyMode)
 			try {
+				this.setFrenzy(true);
 				this.con.handleButtonClicked(GameNames.Frenzy_Mode);
-			} catch (InterruptedException e1) {
+			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
 		else if (e.getSource() == getName) {
@@ -179,7 +189,7 @@ public class Main_Menu implements ActionListener {
 		if (e.getSource() == viewScores) {
 			try {
 				this.con.handleButtonClicked(GameNames.Highscores);
-			} catch (InterruptedException e1) {
+			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
 		} else if (e.getSource() == resetScores) {
@@ -350,6 +360,21 @@ public class Main_Menu implements ActionListener {
 	 */
 	public void setFrenzyMode(JButton frenzyMode) {
 		this.frenzyMode = frenzyMode;
+	}
+
+	/**
+	 * @return the frenzy
+	 */
+	public boolean isFrenzy() {
+		return frenzy;
+	}
+
+	/**
+	 * @param frenzy
+	 *            the frenzy to set
+	 */
+	public void setFrenzy(boolean frenzy) {
+		this.frenzy = frenzy;
 	}
 
 }

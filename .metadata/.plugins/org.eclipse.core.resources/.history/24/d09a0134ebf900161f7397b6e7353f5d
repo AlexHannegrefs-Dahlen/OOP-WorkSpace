@@ -1,9 +1,0 @@
-package arcade.frenzy.model.player;
-
-public class Player {
-	int xLoc, yLoc, width, height, xVel, yVel;
-
-	public Player(int xLoc, int yLoc, int width, int height, int xVel, int yVel) {
-		// TODO Auto-generated constructor stub
-	}
-}

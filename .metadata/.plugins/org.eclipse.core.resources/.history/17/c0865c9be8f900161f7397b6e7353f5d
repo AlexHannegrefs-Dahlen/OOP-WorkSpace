@@ -1,9 +1,0 @@
-package arcade.frenzy.model.game;
-
-public interface Game_Interface {
-	String name = "aif";
-
-	public static void detectCollision() {
-
-	}
-}
