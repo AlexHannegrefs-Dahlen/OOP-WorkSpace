@@ -2,30 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Object_Creater" key="selection"/>
+		<item value="Minimum" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="MaximumSize"/>
+			<item value="MidPlatFormLeft"/>
 			<item value="Object_Creator"/>
 			<item value="Owidth"/>
 			<item value="Oheight"/>
 			<item value="OxLoc"/>
 			<item value="OyLoc"/>
 			<item value="int PxLoc, int PyLoc, int Pwidth, int Pheight, "/>
-			<item value="void detectCollisionObjectOutBottomWall(int PxLoc, int PyLoc, int Pwidth, int Pheight, int OxLoc, int OyLoc, int Owidth,"/>
-			<item value="Out"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Minimum"/>
+			<item value="FinishLine"/>
+			<item value="BotPlatFormLeft"/>
+			<item value="BotPlatFormRight"/>
+			<item value="MidPlatFormRight"/>
 			<item value="Object_Creater"/>
 			<item value="object.getWidth()"/>
 			<item value="object.getHight()"/>
-			<item value="object.getX_Loaction()"/>
-			<item value="object.getY_Loaction()"/>
-			<item value=""/>
-			<item value="Outside"/>
-			<item value="Player"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

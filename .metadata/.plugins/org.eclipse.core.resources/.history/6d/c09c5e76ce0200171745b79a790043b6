@@ -1,0 +1,36 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.Timer;
+import javax.swing.text.html.MinimalHTMLWriter;
+
+import org.omg.CORBA.ARG_OUT;
+
+public class TestDriver implements ActionListener {
+	private Timer milli = new Timer(0, this), second = new Timer(1000, this);
+	
+	private double milliSeconds = 0;
+	
+	private JFrame frame;
+	public static void main(String[] args) {
+		TestDriver driver = new TestDriver();
+		driver.frame = new JFrame();
+		driver.frame.setVisible(true);
+		driver.milli.start();
+		driver.second.start();
+
+	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		if(arg0.getSource() == milli)
+			milliSeconds += .001;
+		if(arg0.getSource() == second)
+			stopTimers();
+	}
+	private void stopTimers() {
+		milli.stop();
+		System.out.println(milliSeconds);
+	}
+
+}

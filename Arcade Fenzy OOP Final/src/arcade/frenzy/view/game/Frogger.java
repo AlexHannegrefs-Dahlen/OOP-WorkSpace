@@ -1,56 +1,69 @@
 package arcade.frenzy.view.game;
 
-import arcade.frenzy.UI.Games.Game_UI;
-
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.awt.image.ImageObserver;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 import acade.frenzy.model.object_creation.Object_Creator;
 import arcade.frenzy.model.player.Player;
 import arcade.frenzy.view.main.menu.Main_Menu;
 
 public class Frogger extends Base_Game {
-	private int width = 50, height = 50, xVel = 25, yVel = 25;
 
-	private Object_Creator Car1, Car2, Car3, start, firstRoad, firstGrass, secondRoad, secondGrass, thirdRoad, finish;
+	private Object_Creator topCar, midCar, botCar, start, firstRoad, firstGrass, secondRoad, secondGrass, thirdRoad,
+			finish;
 
-	public Frogger(Main_Menu game, Game_UI gui, Player player) {
+	private Image frogger;
+
+	private Timer carTimer = new Timer(50 / 3, this);
+
+	public Frogger(Main_Menu game, Player player) throws IOException {
 		this.setGame(game);
 		this.setPlayer(player);
-		this.getPlayer().setxLoc(game.getMainScreen().getWidth() / 2 - 5);
-		this.getPlayer().setyLoc(game.getMainScreen().getHeight() / 2 + 500);
-		this.getPlayer().setWidth(width);
-		this.getPlayer().setHeight(height);
-		this.getPlayer().setxVel(xVel);
-		this.getPlayer().setyVel(yVel);
-		
+		this.getPlayer().setxLoc(game.getMainPanel().getWidth() / 2);
+		this.getPlayer().setyLoc(game.getMainPanel().getHeight() / 10 * 9);
+		this.getPlayer().setWidth(this.getGame().getMainPanel().getHeight() / 10);
+		this.getPlayer().setHeight(this.getGame().getMainPanel().getHeight() / 10);
+		this.getPlayer().setxVel(this.getGame().getMainPanel().getHeight() / 10);
+		this.getPlayer().setyVel(this.getGame().getMainPanel().getHeight() / 10);
+
 		finish = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10,
-				this.getGame().getMainPanel().getWidth(), 0, 0, 0, 0, "GetDown/platform.png");
+				this.getGame().getMainPanel().getWidth(), 0, 0, 0, 0, "Frogger/grass.jpg");
 		thirdRoad = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10 * 2,
-				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight(), 0, 0, Color.GRAY);
+				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight(), 0, 0, "Frogger/road.jpg");
 		secondGrass = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10,
-				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 3, 0, 0, Color.GREEN);
+				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 3, 0, 0, "Frogger/grass.jpg");
 		secondRoad = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10 * 2,
-				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 4, 0, 0, Color.GRAY);
+				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 4, 0, 0, "Frogger/road.jpg");
 		firstGrass = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10,
-				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 6, 0, 0, Color.GREEN);
+				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 6, 0, 0, "Frogger/grass.jpg");
 		firstRoad = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10 * 2,
-				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 7, 0, 0, Color.GRAY);
+				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 7, 0, 0, "Frogger/road.jpg");
 		start = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10,
-				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 9, 0, 0, Color.GREEN);
+				this.getGame().getMainPanel().getWidth(), 0, finish.getHeight() * 9, 0, 0, "Frogger/grass.jpg");
 
-		Car1 = new Object_Creator(100, 200, 0, 975, 25, 0, Color.CYAN);
-		Car2 = new Object_Creator(100, 200, 2360, 600, 25, 0, Color.MAGENTA);
-		Car3 = new Object_Creator(100, 200, 0, this.thirdRoad.getHeight(), 25, 0, Color.RED);
-		
+		topCar = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10, 200, 0,
+				this.finish.getHeight() * 3 / 2, 75, 0, "Frogger/topCar.gif");
+		midCar = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10, 200,
+				this.getGame().getMainPanel().getWidth() - 200, this.finish.getHeight() * 9 / 2, -40, 0,
+				"Frogger/midCar.png");
+		botCar = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10, 200, 0,
+				this.finish.getHeight() * 15 / 2, 25, 0, "Frogger/botCar.gif");
 
-		this.setBackground(Color.BLACK);
+		frogger = ImageIO.read(new File("Frogger/frogUp.png"));
+
 		game.getMainScreen().add(this);
 		game.getMainScreen().setVisible(true);
 		this.addKeyListener(this);
+		this.getCarTimer().start();
 	}
 
 	public void Winner() {
@@ -59,44 +72,31 @@ public class Frogger extends Base_Game {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		/*g.drawImage(finish.getImg_URL(), finish.getX_Location(), finish.getY_Location(),
-				finish.getX_Location() + this.getGame().getMainPanel().getWidth(), finish.getY_Location() + this.getGame().getMainPanel().getHeight(),
-				finish.getX_Location(), finish.getY_Location(),
-				finish.getX_Location() + this.getGame().getMainPanel().getWidth(), finish.getY_Location() + this.getGame().getMainPanel().getHeight()
-				, ImageObserver.);*/
-		g.fillRect(finish.getX_Location(), finish.getY_Location(), finish.getWidth(), finish.getHeight());
+		g.drawImage(finish.getPicture(), finish.getX_Location(), finish.getY_Location(), finish.getWidth(),
+				finish.getHeight(), this);
+		g.drawImage(thirdRoad.getPicture(), thirdRoad.getX_Location(), thirdRoad.getY_Location(), thirdRoad.getWidth(),
+				thirdRoad.getHeight(), this);
+		g.drawImage(secondGrass.getPicture(), secondGrass.getX_Location(), secondGrass.getY_Location(),
+				secondGrass.getWidth(), secondGrass.getHeight(), this);
+		g.drawImage(secondRoad.getPicture(), secondRoad.getX_Location(), secondRoad.getY_Location(),
+				secondRoad.getWidth(), secondRoad.getHeight(), this);
+		g.drawImage(firstGrass.getPicture(), firstGrass.getX_Location(), firstGrass.getY_Location(),
+				firstGrass.getWidth(), firstGrass.getHeight(), this);
+		g.drawImage(firstRoad.getPicture(), firstRoad.getX_Location(), firstRoad.getY_Location(), firstRoad.getWidth(),
+				firstRoad.getHeight(), this);
+		g.drawImage(start.getPicture(), start.getX_Location(), start.getY_Location(), start.getWidth(),
+				start.getHeight(), this);
 
-		g.setColor(thirdRoad.getColor());
-		g.fillRect(thirdRoad.getX_Location(), thirdRoad.getY_Location(), thirdRoad.getWidth(), thirdRoad.getHeight());
-		
-		g.setColor(secondGrass.getColor());
-		g.fillRect(secondGrass.getX_Location(), secondGrass.getY_Location(), secondGrass.getWidth(), secondGrass.getHeight());
-		
-		g.setColor(secondRoad.getColor());
-		g.fillRect(secondRoad.getX_Location(), secondRoad.getY_Location(), secondRoad.getWidth(), secondRoad.getHeight());
-		
-		g.setColor(firstGrass.getColor());
-		g.fillRect(firstGrass.getX_Location(), firstGrass.getY_Location(), firstGrass.getWidth(), firstGrass.getHeight());
-		
-		g.setColor(firstRoad.getColor());
-		g.fillRect(firstRoad.getX_Location(), firstRoad.getY_Location(), firstRoad.getWidth(), firstRoad.getHeight());
-		
-		g.setColor(start.getColor());
-		g.fillRect(start.getX_Location(), start.getY_Location(), start.getWidth(), start.getHeight());
-		
-		
-		g.setColor(Car3.getColor());
-		g.fillRect(Car3.getX_Location(), Car3.getY_Location(), Car3.getWidth(), Car3.getHeight());
-
-		g.setColor(Car2.getColor());
-		g.fillRect(Car2.getX_Location(), Car2.getY_Location(), Car2.getWidth(), Car2.getHeight());
-
-		g.setColor(Car1.getColor());
-		g.fillRect(Car1.getX_Location(), Car1.getY_Location(), Car1.getWidth(), Car1.getHeight());
+		g.drawImage(topCar.getPicture(), topCar.getX_Location(), topCar.getY_Location(), topCar.getWidth(),
+				topCar.getHeight(), this);
+		g.drawImage(midCar.getPicture(), midCar.getX_Location(), midCar.getY_Location(), midCar.getWidth(),
+				midCar.getHeight(), this);
+		g.drawImage(botCar.getPicture(), botCar.getX_Location(), botCar.getY_Location(), botCar.getWidth(),
+				botCar.getHeight(), this);
 
 		g.setColor(Color.WHITE);
-		g.fillOval(this.getPlayer().getxLoc(), this.getPlayer().getyLoc(), this.getPlayer().getWidth(),
-				this.getPlayer().getHeight());
+		g.drawImage(frogger, this.getPlayer().getxLoc(), this.getPlayer().getyLoc(), this.getPlayer().getWidth(),
+				this.getPlayer().getHeight(), this);
 	}
 
 	/**
@@ -106,26 +106,182 @@ public class Frogger extends Base_Game {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			try {
+				frogger = ImageIO.read(new File("Frogger/frogUp.png"));
+			} catch (IOException e1) {
+			}
+			if (!super.detectCollisionPlayerInsideTopWall(this.getGame().getMainPanel().getX(),
+					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
+					this.getGame().getMainPanel().getHeight())) {
+				this.getPlayer().setyLoc(this.getPlayer().getyLoc() - this.getPlayer().getyVel());
+			} else {
+				this.getPlayer().setyLoc(this.getPlayer().getyLoc() - this.getPlayer().getyVel());
+				this.repaint();
+				this.getCarTimer().stop();
+				this.playerWon();
+			}
+		}
 
+		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			try {
+				frogger = ImageIO.read(new File("Frogger/frogDown.png"));
+			} catch (IOException e1) {
+			}
+			if (!super.detectCollisionPlayerInsideBottomWall(this.getGame().getMainPanel().getX(),
+					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
+					this.getGame().getMainPanel().getHeight())) {
+				this.getPlayer().setyLoc(this.getPlayer().getyLoc() + this.getPlayer().getyVel());
+			}
+
+		}
+
+		else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			try {
+				frogger = ImageIO.read(new File("Frogger/frogLeft.png"));
+			} catch (IOException e1) {
+			}
+			if (!super.detectCollisionPlayerInsideLeftWall(this.getGame().getMainPanel().getX(),
+					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
+					this.getGame().getMainPanel().getHeight())) {
+				this.getPlayer().setxLoc(this.getPlayer().getxLoc() - this.getPlayer().getxVel());
+			}
+		}
+
+		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			try {
+				frogger = ImageIO.read(new File("Frogger/frogRight.png"));
+			} catch (IOException e1) {
+			}
+			if (!super.detectCollisionPlayerInsideRightWall(this.getGame().getMainPanel().getX(),
+					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
+					this.getGame().getMainPanel().getHeight())) {
+				this.getPlayer().setxLoc(this.getPlayer().getxLoc() + this.getPlayer().getxVel());
+			}
+		}
+		this.repaint();
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == carTimer) {
+			if (this.topCar.getX_Location() > this.getGame().getMainPanel().getWidth() - 200) {
+				this.topCar.setX_Velocity(this.topCar.getX_Velocity() * -1);
+				try {
+					topCar.setPicture(ImageIO.read(new File("Frogger/topCarFlipped.gif")));
+				} catch (IOException e1) {
+				}
+			}
+			if (this.topCar.getX_Location() < 20) {
+				this.topCar.setX_Velocity(this.topCar.getX_Velocity() * -1);
+				try {
+					topCar.setPicture(ImageIO.read(new File("Frogger/topCar.gif")));
+				} catch (IOException e1) {
+				}
+			}
+			if (this.midCar.getX_Location() > this.getGame().getMainPanel().getWidth() - 200) {
+				this.midCar.setX_Velocity(this.midCar.getX_Velocity() * -1);
+				try {
+					midCar.setPicture(ImageIO.read(new File("Frogger/midCar.png")));
+				} catch (IOException e1) {
+				}
+			}
+			if (this.midCar.getX_Location() < 20) {
+				this.midCar.setX_Velocity(this.midCar.getX_Velocity() * -1);
+				try {
+					midCar.setPicture(ImageIO.read(new File("Frogger/midCarFlipped.png")));
+				} catch (IOException e1) {
+				}
+			}
+			if (this.botCar.getX_Location() > this.getGame().getMainPanel().getWidth() - 200) {
+				this.botCar.setX_Velocity(this.botCar.getX_Velocity() * -1);
+				try {
+					botCar.setPicture(ImageIO.read(new File("Frogger/botCarFlipped.gif")));
+				} catch (IOException e1) {
+				}
+			}
+			if (this.botCar.getX_Location() < 20) {
+				this.botCar.setX_Velocity(this.botCar.getX_Velocity() * -1);
+				try {
+					botCar.setPicture(ImageIO.read(new File("Frogger/botCar.gif")));
+				} catch (IOException e1) {
+				}
+			}
+			this.topCar.setX_Location(this.topCar.getX_Location() + this.topCar.getX_Velocity());
+			this.midCar.setX_Location(this.midCar.getX_Location() + this.midCar.getX_Velocity());
+			this.botCar.setX_Location(this.botCar.getX_Location() + this.botCar.getX_Velocity());
 
+			this.repaint();
+
+			if (checkForlose()) {
+				this.getCarTimer().stop();
+				playerLost();
+			}
+		}
+	}
+
+	private boolean checkForlose() {
+		if (super.detectCollisionPlayerOutsideBottomWall(botCar) || super.detectCollisionPlayerOutsideTopWall(botCar)
+				|| super.detectCollisionPlayerOutsideLeftWall(botCar)
+				|| super.detectCollisionPlayerOutsideRightWall(botCar))
+			return true;
+		if (super.detectCollisionPlayerOutsideBottomWall(midCar) || super.detectCollisionPlayerOutsideTopWall(midCar)
+				|| super.detectCollisionPlayerOutsideLeftWall(midCar)
+				|| super.detectCollisionPlayerOutsideRightWall(midCar))
+			return true;
+		if (super.detectCollisionPlayerOutsideBottomWall(topCar) || super.detectCollisionPlayerOutsideTopWall(topCar)
+				|| super.detectCollisionPlayerOutsideLeftWall(topCar)
+				|| super.detectCollisionPlayerOutsideRightWall(topCar))
+			return true;
+		return false;
+	}
+
+	private void playerLost() {
+		if (!this.getGame().isFrenzy()) {
+			JOptionPane.showMessageDialog(this, "You are dead!");
+			super.gameOver(this);
+		} else
+			try {
+				this.getGame().getCon().getFrenzy().gameOver(this);
+			} catch (InterruptedException | IOException e1) {
+			}
+
+	}
+
+	private void playerWon() {
+		if (!this.getGame().isFrenzy()) {
+			JOptionPane.showMessageDialog(this, "You won!");
+			super.gameOver(this);
+		} else
+			try {
+				this.getGame().getCon().getFrenzy().gameOver(this);
+			} catch (InterruptedException | IOException e1) {
+			}
+	}
+
+	/**
+	 * @return the carTimer
+	 */
+	public Timer getCarTimer() {
+		return carTimer;
+	}
+
+	/**
+	 * @param carTimer
+	 *            the carTimer to set
+	 */
+	public void setCarTimer(Timer carTimer) {
+		this.carTimer = carTimer;
 	}
 
 }

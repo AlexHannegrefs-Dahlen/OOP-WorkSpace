@@ -1,0 +1,46 @@
+package arcade.frenzy.model.load_save;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import arcade.frenzy.view.main.menu.Main_Menu;
+
+public class Highscores extends JPanel {
+	private JButton load, mainMenu;
+
+	public Highscores(Main_Menu game) {
+		this.setBackground(Color.WHITE);
+		load = new JButton("Load Scores");
+		load.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		mainMenu = new JButton("Go to Main Menu");
+		mainMenu.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		this.add(load);
+		this.add(mainMenu);
+		game.getMainScreen().add(this);
+		game.getMainScreen().setVisible(true);
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+}

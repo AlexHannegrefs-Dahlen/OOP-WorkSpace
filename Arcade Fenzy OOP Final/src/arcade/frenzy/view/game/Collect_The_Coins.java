@@ -14,7 +14,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 import acade.frenzy.model.object_creation.Object_Creator;
-import arcade.frenzy.UI.Games.Game_UI;
 import arcade.frenzy.model.player.Player;
 import arcade.frenzy.view.main.menu.Main_Menu;
 
@@ -26,7 +25,7 @@ public class Collect_The_Coins extends Base_Game {
 
 	private Object_Creator center, topLeft, topRight, botLeft, botRight, top, left, right, bot, Coin1, Coin2, Coin3;
 
-	public Collect_The_Coins(Main_Menu game, Player player, Game_UI gui, Image image) throws IOException {
+	public Collect_The_Coins(Main_Menu game, Player player, Image image) throws IOException {
 		super(image);
 		this.setGame(game);
 		this.setPlayer(player);
@@ -58,11 +57,11 @@ public class Collect_The_Coins extends Base_Game {
 		right = new Object_Creator(500, 75, game.getMainScreen().getWidth() / 2 + 350,
 				game.getMainScreen().getHeight() / 2 - 250, 0, 0, Color.WHITE);
 
-		Coin1 = new Object_Creator(60, 60, game.getMainScreen().getWidth() / 2 - 312,
+		Coin1 = new Object_Creator(60, 60, game.getMainScreen().getWidth() / 2 - 325,
 				game.getMainScreen().getHeight() / 2 - 250, 0, 0, "Collect the coin/coin.gif", false);
-		Coin2 = new Object_Creator(60, 60, game.getMainScreen().getWidth() / 2 - 100,
+		Coin2 = new Object_Creator(60, 60, game.getMainScreen().getWidth() / 2 - 125,
 				game.getMainScreen().getHeight() / 2 - 125, 0, 0, "Collect the coin/coin.gif", false);
-		Coin3 = new Object_Creator(60, 60, game.getMainScreen().getWidth() / 2 + 250,
+		Coin3 = new Object_Creator(60, 60, game.getMainScreen().getWidth() / 2 + 275,
 				game.getMainScreen().getHeight() / 2 + 285, 0, 0, "Collect the coin/coin.gif", false);
 
 		this.setBackground(Color.BLACK);
@@ -72,12 +71,9 @@ public class Collect_The_Coins extends Base_Game {
 
 	}
 
-	// move to game_UI eventually
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(Color.WHITE);
-		// g.fillOval(this.getPlayer().getxLoc(), this.getPlayer().getyLoc(),
-		// width, height);
 		try {
 			g.drawImage(ImageIO.read(new File("Collect the coin/pot of gold.gif")), this.getPlayer().getxLoc(),
 					this.getPlayer().getyLoc(), WIDTH, HEIGHT, this);
@@ -85,8 +81,8 @@ public class Collect_The_Coins extends Base_Game {
 		}
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setStroke(new BasicStroke(8));
-		g2.setColor(center.getColor());
-		g2.drawRect(center.getX_Location(), center.getY_Location(), center.getWidth(), center.getHeight());
+		g.setColor(center.getColor());
+		g.drawRect(center.getX_Location(), center.getY_Location(), center.getWidth(), center.getHeight());
 
 		g.setColor(topLeft.getColor());
 		g.drawRect(topLeft.getX_Location(), topLeft.getY_Location(), topLeft.getWidth(), topLeft.getHeight());

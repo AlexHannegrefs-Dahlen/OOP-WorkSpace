@@ -1,0 +1,10 @@
+package arcade.frenzy.model.load_save;
+
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+public class Load {
+	BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("scores.txt")));
+}
