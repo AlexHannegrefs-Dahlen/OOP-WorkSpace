@@ -15,6 +15,12 @@ import arcade.frenzy.view.game.Jump_The_Car;
 import arcade.frenzy.view.game.Tree_Climber;
 import arcade.frenzy.view.main.menu.Main_Menu;
 
+/**
+ * 
+ * @author Alex
+ *
+ *         Controller for the app
+ */
 public class Main_Controller {
 	private String playersName;
 
@@ -36,12 +42,24 @@ public class Main_Controller {
 
 	private Highscores highscore;
 
+	/**
+	 * Starts the program
+	 */
+
 	public void start() {
 		game = new Main_Menu();
 		game.init(this);
 		player = new Player();
 	}
 
+	/**
+	 * Switches the games based of the button clicked
+	 * 
+	 * @param buttonClicked
+	 *            what game was clicked on
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	public void handleButtonClicked(GameNames buttonClicked) throws InterruptedException, IOException {
 		if (game.getMainPanel().isVisible())
 			game.getMainPanel().setVisible(false);
@@ -52,7 +70,7 @@ public class Main_Controller {
 			coins.requestFocusInWindow();
 			break;
 		case Tree_Climber:
-			this.climber = new Tree_Climber(game, player);
+			this.climber = new Tree_Climber(game, player, ImageIO.read(new File("Tree Climber/background.jpg")));
 			climber.setFocusable(true);
 			climber.requestFocusInWindow();
 			break;
@@ -235,6 +253,9 @@ public class Main_Controller {
 		this.highscore = highscore;
 	}
 
+	/**
+	 * resets frenzy mode to the main menu
+	 */
 	public void frenzyOver() {
 		this.getGame().getMainPanel().setVisible(true);
 		this.getGame().getMainPanel().setFocusable(true);

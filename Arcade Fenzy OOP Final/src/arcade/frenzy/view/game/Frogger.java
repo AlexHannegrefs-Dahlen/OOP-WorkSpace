@@ -1,6 +1,5 @@
 package arcade.frenzy.view.game;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -25,6 +24,16 @@ public class Frogger extends Base_Game {
 
 	private Timer carTimer = new Timer(50 / 3, this);
 
+	private Object_Creator[] objects;
+
+	/**
+	 * 
+	 * @param game
+	 *            - game instance
+	 * @param player
+	 *            - current player
+	 * @throws IOException
+	 */
 	public Frogger(Main_Menu game, Player player) throws IOException {
 		this.setGame(game);
 		this.setPlayer(player);
@@ -53,12 +62,14 @@ public class Frogger extends Base_Game {
 		topCar = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10, 200, 0,
 				this.finish.getHeight() * 3 / 2, 75, 0, "Frogger/topCar.gif");
 		midCar = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10, 200,
-				this.getGame().getMainPanel().getWidth() - 200, this.finish.getHeight() * 9 / 2, -40, 0,
+				this.getGame().getMainPanel().getWidth() - 200, this.finish.getHeight() * 9 / 2, 40, 0,
 				"Frogger/midCar.png");
 		botCar = new Object_Creator(this.getGame().getMainPanel().getHeight() / 10, 200, 0,
 				this.finish.getHeight() * 15 / 2, 25, 0, "Frogger/botCar.gif");
 
 		frogger = ImageIO.read(new File("Frogger/frogUp.png"));
+
+		objects = new Object_Creator[] { start, firstRoad, firstGrass, secondRoad, secondGrass, thirdRoad, finish };
 
 		game.getMainScreen().add(this);
 		game.getMainScreen().setVisible(true);
@@ -66,42 +77,29 @@ public class Frogger extends Base_Game {
 		this.getCarTimer().start();
 	}
 
-	public void Winner() {
-	}
-
+	/**
+	 * Paints the objects and player of the game
+	 */
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawImage(finish.getPicture(), finish.getX_Location(), finish.getY_Location(), finish.getWidth(),
-				finish.getHeight(), this);
-		g.drawImage(thirdRoad.getPicture(), thirdRoad.getX_Location(), thirdRoad.getY_Location(), thirdRoad.getWidth(),
-				thirdRoad.getHeight(), this);
-		g.drawImage(secondGrass.getPicture(), secondGrass.getX_Location(), secondGrass.getY_Location(),
-				secondGrass.getWidth(), secondGrass.getHeight(), this);
-		g.drawImage(secondRoad.getPicture(), secondRoad.getX_Location(), secondRoad.getY_Location(),
-				secondRoad.getWidth(), secondRoad.getHeight(), this);
-		g.drawImage(firstGrass.getPicture(), firstGrass.getX_Location(), firstGrass.getY_Location(),
-				firstGrass.getWidth(), firstGrass.getHeight(), this);
-		g.drawImage(firstRoad.getPicture(), firstRoad.getX_Location(), firstRoad.getY_Location(), firstRoad.getWidth(),
-				firstRoad.getHeight(), this);
-		g.drawImage(start.getPicture(), start.getX_Location(), start.getY_Location(), start.getWidth(),
-				start.getHeight(), this);
+		for (int i = 0; i < objects.length; i++) {
+			g.drawImage(objects[i].getObjectImage(), objects[i].getxLocation(), objects[i].getyLocation(),
+					objects[i].getWidth(), objects[i].getHeight(), this);
+		}
 
-		g.drawImage(topCar.getPicture(), topCar.getX_Location(), topCar.getY_Location(), topCar.getWidth(),
+		g.drawImage(topCar.getObjectImage(), topCar.getxLocation(), topCar.getyLocation(), topCar.getWidth(),
 				topCar.getHeight(), this);
-		g.drawImage(midCar.getPicture(), midCar.getX_Location(), midCar.getY_Location(), midCar.getWidth(),
+		g.drawImage(midCar.getObjectImage(), midCar.getxLocation(), midCar.getyLocation(), midCar.getWidth(),
 				midCar.getHeight(), this);
-		g.drawImage(botCar.getPicture(), botCar.getX_Location(), botCar.getY_Location(), botCar.getWidth(),
+		g.drawImage(botCar.getObjectImage(), botCar.getxLocation(), botCar.getyLocation(), botCar.getWidth(),
 				botCar.getHeight(), this);
 
-		g.setColor(Color.WHITE);
 		g.drawImage(frogger, this.getPlayer().getxLoc(), this.getPlayer().getyLoc(), this.getPlayer().getWidth(),
 				this.getPlayer().getHeight(), this);
+
 	}
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -109,6 +107,9 @@ public class Frogger extends Base_Game {
 
 	}
 
+	/**
+	 * Player movement
+	 */
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -119,9 +120,9 @@ public class Frogger extends Base_Game {
 			if (!super.detectCollisionPlayerInsideTopWall(this.getGame().getMainPanel().getX(),
 					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
 					this.getGame().getMainPanel().getHeight())) {
-				this.getPlayer().setyLoc(this.getPlayer().getyLoc() - this.getPlayer().getyVel());
+				this.getPlayer().moveUp();
 			} else {
-				this.getPlayer().setyLoc(this.getPlayer().getyLoc() - this.getPlayer().getyVel());
+				this.getPlayer().moveUp();
 				this.repaint();
 				this.getCarTimer().stop();
 				this.playerWon();
@@ -136,7 +137,7 @@ public class Frogger extends Base_Game {
 			if (!super.detectCollisionPlayerInsideBottomWall(this.getGame().getMainPanel().getX(),
 					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
 					this.getGame().getMainPanel().getHeight())) {
-				this.getPlayer().setyLoc(this.getPlayer().getyLoc() + this.getPlayer().getyVel());
+				this.getPlayer().moveDown();
 			}
 
 		}
@@ -149,7 +150,7 @@ public class Frogger extends Base_Game {
 			if (!super.detectCollisionPlayerInsideLeftWall(this.getGame().getMainPanel().getX(),
 					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
 					this.getGame().getMainPanel().getHeight())) {
-				this.getPlayer().setxLoc(this.getPlayer().getxLoc() - this.getPlayer().getxVel());
+				this.getPlayer().moveLeft();
 			}
 		}
 
@@ -161,7 +162,7 @@ public class Frogger extends Base_Game {
 			if (!super.detectCollisionPlayerInsideRightWall(this.getGame().getMainPanel().getX(),
 					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
 					this.getGame().getMainPanel().getHeight())) {
-				this.getPlayer().setxLoc(this.getPlayer().getxLoc() + this.getPlayer().getxVel());
+				this.getPlayer().moveRight();
 			}
 		}
 		this.repaint();
@@ -172,54 +173,57 @@ public class Frogger extends Base_Game {
 
 	}
 
+	/**
+	 * car movement
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == carTimer) {
-			if (this.topCar.getX_Location() > this.getGame().getMainPanel().getWidth() - 200) {
-				this.topCar.setX_Velocity(this.topCar.getX_Velocity() * -1);
+			if (this.topCar.getxLocation() > this.getGame().getMainPanel().getWidth() - 200) {
+				this.topCar.setxVelocity(this.topCar.getxVelocity() * -1);
 				try {
-					topCar.setPicture(ImageIO.read(new File("Frogger/topCarFlipped.gif")));
+					topCar.setObjectImage(ImageIO.read(new File("Frogger/topCarFlipped.gif")));
 				} catch (IOException e1) {
 				}
 			}
-			if (this.topCar.getX_Location() < 20) {
-				this.topCar.setX_Velocity(this.topCar.getX_Velocity() * -1);
+			if (this.topCar.getxLocation() < 0) {
+				this.topCar.setxVelocity(this.topCar.getxVelocity() * -1);
 				try {
-					topCar.setPicture(ImageIO.read(new File("Frogger/topCar.gif")));
+					topCar.setObjectImage(ImageIO.read(new File("Frogger/topCar.gif")));
 				} catch (IOException e1) {
 				}
 			}
-			if (this.midCar.getX_Location() > this.getGame().getMainPanel().getWidth() - 200) {
-				this.midCar.setX_Velocity(this.midCar.getX_Velocity() * -1);
+			if (this.midCar.getxLocation() > this.getGame().getMainPanel().getWidth() - 200) {
+				this.midCar.setxVelocity(this.midCar.getxVelocity() * -1);
 				try {
-					midCar.setPicture(ImageIO.read(new File("Frogger/midCar.png")));
+					midCar.setObjectImage(ImageIO.read(new File("Frogger/midCar.png")));
 				} catch (IOException e1) {
 				}
 			}
-			if (this.midCar.getX_Location() < 20) {
-				this.midCar.setX_Velocity(this.midCar.getX_Velocity() * -1);
+			if (this.midCar.getxLocation() < 0) {
+				this.midCar.setxVelocity(this.midCar.getxVelocity() * -1);
 				try {
-					midCar.setPicture(ImageIO.read(new File("Frogger/midCarFlipped.png")));
+					midCar.setObjectImage(ImageIO.read(new File("Frogger/midCarFlipped.png")));
 				} catch (IOException e1) {
 				}
 			}
-			if (this.botCar.getX_Location() > this.getGame().getMainPanel().getWidth() - 200) {
-				this.botCar.setX_Velocity(this.botCar.getX_Velocity() * -1);
+			if (this.botCar.getxLocation() > this.getGame().getMainPanel().getWidth() - 200) {
+				this.botCar.setxVelocity(this.botCar.getxVelocity() * -1);
 				try {
-					botCar.setPicture(ImageIO.read(new File("Frogger/botCarFlipped.gif")));
+					botCar.setObjectImage(ImageIO.read(new File("Frogger/botCarFlipped.gif")));
 				} catch (IOException e1) {
 				}
 			}
-			if (this.botCar.getX_Location() < 20) {
-				this.botCar.setX_Velocity(this.botCar.getX_Velocity() * -1);
+			if (this.botCar.getxLocation() < 0) {
+				this.botCar.setxVelocity(this.botCar.getxVelocity() * -1);
 				try {
-					botCar.setPicture(ImageIO.read(new File("Frogger/botCar.gif")));
+					botCar.setObjectImage(ImageIO.read(new File("Frogger/botCar.gif")));
 				} catch (IOException e1) {
 				}
 			}
-			this.topCar.setX_Location(this.topCar.getX_Location() + this.topCar.getX_Velocity());
-			this.midCar.setX_Location(this.midCar.getX_Location() + this.midCar.getX_Velocity());
-			this.botCar.setX_Location(this.botCar.getX_Location() + this.botCar.getX_Velocity());
+			this.topCar.setxLocation(this.topCar.getxLocation() + this.topCar.getxVelocity());
+			this.midCar.setxLocation(this.midCar.getxLocation() + this.midCar.getxVelocity());
+			this.botCar.setxLocation(this.botCar.getxLocation() + this.botCar.getxVelocity());
 
 			this.repaint();
 
@@ -250,23 +254,16 @@ public class Frogger extends Base_Game {
 		if (!this.getGame().isFrenzy()) {
 			JOptionPane.showMessageDialog(this, "You are dead!");
 			super.gameOver(this);
-		} else
-			try {
-				this.getGame().getCon().getFrenzy().gameOver(this);
-			} catch (InterruptedException | IOException e1) {
-			}
+		} else {
+			this.getPlayer().setxLoc(this.getGame().getMainPanel().getWidth() / 2);
+			this.getPlayer().setyLoc(this.getGame().getMainPanel().getHeight() / 10 * 9);
+			this.getCarTimer().start();
+		}
 
 	}
 
 	private void playerWon() {
-		if (!this.getGame().isFrenzy()) {
-			JOptionPane.showMessageDialog(this, "You won!");
-			super.gameOver(this);
-		} else
-			try {
-				this.getGame().getCon().getFrenzy().gameOver(this);
-			} catch (InterruptedException | IOException e1) {
-			}
+		super.gameEndScreen("You Won!");
 	}
 
 	/**
@@ -282,6 +279,171 @@ public class Frogger extends Base_Game {
 	 */
 	public void setCarTimer(Timer carTimer) {
 		this.carTimer = carTimer;
+	}
+
+	/**
+	 * @return the topCar
+	 */
+	public Object_Creator getTopCar() {
+		return topCar;
+	}
+
+	/**
+	 * @param topCar
+	 *            the topCar to set
+	 */
+	public void setTopCar(Object_Creator topCar) {
+		this.topCar = topCar;
+	}
+
+	/**
+	 * @return the midCar
+	 */
+	public Object_Creator getMidCar() {
+		return midCar;
+	}
+
+	/**
+	 * @param midCar
+	 *            the midCar to set
+	 */
+	public void setMidCar(Object_Creator midCar) {
+		this.midCar = midCar;
+	}
+
+	/**
+	 * @return the botCar
+	 */
+	public Object_Creator getBotCar() {
+		return botCar;
+	}
+
+	/**
+	 * @param botCar
+	 *            the botCar to set
+	 */
+	public void setBotCar(Object_Creator botCar) {
+		this.botCar = botCar;
+	}
+
+	/**
+	 * @return the start
+	 */
+	public Object_Creator getStart() {
+		return start;
+	}
+
+	/**
+	 * @param start
+	 *            the start to set
+	 */
+	public void setStart(Object_Creator start) {
+		this.start = start;
+	}
+
+	/**
+	 * @return the firstRoad
+	 */
+	public Object_Creator getFirstRoad() {
+		return firstRoad;
+	}
+
+	/**
+	 * @param firstRoad
+	 *            the firstRoad to set
+	 */
+	public void setFirstRoad(Object_Creator firstRoad) {
+		this.firstRoad = firstRoad;
+	}
+
+	/**
+	 * @return the firstGrass
+	 */
+	public Object_Creator getFirstGrass() {
+		return firstGrass;
+	}
+
+	/**
+	 * @param firstGrass
+	 *            the firstGrass to set
+	 */
+	public void setFirstGrass(Object_Creator firstGrass) {
+		this.firstGrass = firstGrass;
+	}
+
+	/**
+	 * @return the secondRoad
+	 */
+	public Object_Creator getSecondRoad() {
+		return secondRoad;
+	}
+
+	/**
+	 * @param secondRoad
+	 *            the secondRoad to set
+	 */
+	public void setSecondRoad(Object_Creator secondRoad) {
+		this.secondRoad = secondRoad;
+	}
+
+	/**
+	 * @return the secondGrass
+	 */
+	public Object_Creator getSecondGrass() {
+		return secondGrass;
+	}
+
+	/**
+	 * @param secondGrass
+	 *            the secondGrass to set
+	 */
+	public void setSecondGrass(Object_Creator secondGrass) {
+		this.secondGrass = secondGrass;
+	}
+
+	/**
+	 * @return the thirdRoad
+	 */
+	public Object_Creator getThirdRoad() {
+		return thirdRoad;
+	}
+
+	/**
+	 * @param thirdRoad
+	 *            the thirdRoad to set
+	 */
+	public void setThirdRoad(Object_Creator thirdRoad) {
+		this.thirdRoad = thirdRoad;
+	}
+
+	/**
+	 * @return the finish
+	 */
+	public Object_Creator getFinish() {
+		return finish;
+	}
+
+	/**
+	 * @param finish
+	 *            the finish to set
+	 */
+	public void setFinish(Object_Creator finish) {
+		this.finish = finish;
+	}
+
+	/**
+	 * @return the frogger
+	 */
+	public Image getFrogger() {
+		return frogger;
+	}
+
+	/**
+	 * @param frogger
+	 *            the frogger to set
+	 */
+	public void setFrogger(Image frogger) {
+		this.frogger = frogger;
 	}
 
 }

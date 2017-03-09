@@ -2,15 +2,14 @@ package arcade.frenzy.model.player;
 
 /**
  * 
- * @author Alex
- *
+ * @author Alex player class
  */
 public class Player {
 	int xLoc, yLoc, width, height, xVel, yVel;
 	String name;
 
 	/**
-	 * Basic constructor
+	 * Basic Constructor
 	 */
 	public Player() {
 
@@ -45,8 +44,36 @@ public class Player {
 	}
 
 	/**
+	 * moves the player up by the players velocity
+	 */
+	public void moveUp() {
+		this.setyLoc(this.getyLoc() - this.getyVel());
+	}
+
+	/**
+	 * moves the player down by the players velocity
+	 */
+	public void moveDown() {
+		this.setyLoc(this.getyLoc() + this.getyVel());
+	}
+
+	/**
+	 * moves the player left by the players velocity
+	 */
+	public void moveLeft() {
+		this.setxLoc(this.getxLoc() - this.getxVel());
+	}
+
+	/**
+	 * moves the player right by the players velocity
+	 */
+	public void moveRight() {
+		this.setxLoc(this.getxLoc() + this.getxVel());
+	}
+
+	/**
 	 * 
-	 * @return
+	 * @return the players name
 	 */
 	public String getName() {
 		return this.name;

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="arcade.frenzy.model.game.Base_Game"/>
-<fullyQualifiedTypeName name="arcade.frenzy.model.game.Collect_The_Coins"/>
-<fullyQualifiedTypeName name="arcade.frenzy.model.game.Tree_Climber"/>
 <fullyQualifiedTypeName name="arcade.frenzy.model.game.Frogger"/>
 <fullyQualifiedTypeName name="arcade.frenzy.model.game.Get_Down"/>
 <fullyQualifiedTypeName name="arcade.frenzy.model.game.Jump_The_Car"/>
@@ -17,7 +14,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="arcade.frenzy.controller.Main_Controller"/>
-<fullyQualifiedTypeName name="arcade.frenzy.model.player.Player"/>
 <fullyQualifiedTypeName name="arcade.frenzy.view.game.Base_Game"/>
 <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
 <fullyQualifiedTypeName name="java.awt.BasicStroke"/>
@@ -33,14 +29,12 @@
 <fullyQualifiedTypeName name="javax.swing.text.html.MinimalHTMLWriter"/>
 <fullyQualifiedTypeName name="TestDriver"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.PrintStream"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="arcade.frenzy.view.main.menu.Main_Menu"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="javax.swing.JTextPane"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="arcade.frenzy.model.load_save.Load"/>
 <fullyQualifiedTypeName name="javax.swing.BoxLayout"/>
 <fullyQualifiedTypeName name="javax.swing.Box"/>
@@ -50,7 +44,6 @@
 <fullyQualifiedTypeName name="java.awt.Dimension"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="javax.swing.Icon"/>
-<fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="javax.swing.Timer"/>
@@ -58,6 +51,13 @@
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="arcade.frenzy.view.game.Frenzy_Mode"/>
 <fullyQualifiedTypeName name="arcade.frenzy.view.game.Frogger"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="arcade.frenzy.model.load_save.Save"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
+<fullyQualifiedTypeName name="arcade.frenzy.model.player.Player"/>
+<fullyQualifiedTypeName name="acade.frenzy.model.object_creation.Object_Creator"/>
 </qualifiedTypeNameHistroy>

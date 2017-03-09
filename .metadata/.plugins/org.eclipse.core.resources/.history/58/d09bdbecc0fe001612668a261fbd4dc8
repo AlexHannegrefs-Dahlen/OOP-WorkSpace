@@ -1,7 +1,0 @@
-package arcade.frenzy.view.game;
-
-public interface Game_Interface {
-
-	void detectCollisionLeft(int PxLoc, int PyLoc, int Pwidth, int Pheight, int OxLoc, int OyLoc, int Owidth,
-			int Oheight);
-}

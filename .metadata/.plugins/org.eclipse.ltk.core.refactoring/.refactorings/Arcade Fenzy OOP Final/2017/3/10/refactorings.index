@@ -9,3 +9,10 @@
 1488857133069	Encapsulate field 'scoreLoader'
 1488922596263	Encapsulate field 'carTimer'
 1488949157734	Delete element
+1489017142545	Rename field 'X_Location'
+1489017180362	Rename field 'X_Velocity'
+1489017201931	Rename field 'Y_Velocity'
+1489017218505	Rename field 'Img_URL'
+1489017233726	Rename field 'picture'
+1489017408604	Rename field 'Width'
+1489020144577	Delete element

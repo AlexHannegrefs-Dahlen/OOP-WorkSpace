@@ -15,9 +15,13 @@ import arcade.frenzy.controller.Main_Controller;
 import arcade.frenzy.model.load_save.Save;
 import arcade.frenzy.view.main.menu.Main_Menu;
 
+/**
+ * 
+ * @author Alex Frenzy Mode Game
+ */
 public class Frenzy_Mode implements ActionListener {
 	private ArrayList<GameNames> games = new ArrayList<GameNames>(Arrays.asList(GameNames.Collect_The_Coins,
-			GameNames.Frogger, GameNames.Get_Down, GameNames.Jump_The_Car));
+			GameNames.Frogger, GameNames.Get_Down, GameNames.Jump_The_Car, GameNames.Tree_Climber));
 
 	private Main_Controller con;
 
@@ -27,6 +31,15 @@ public class Frenzy_Mode implements ActionListener {
 
 	private double score = 0;
 
+	/**
+	 * 
+	 * @param main_Controller
+	 *            - controller instance
+	 * @param game
+	 *            - game instance
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	public Frenzy_Mode(Main_Controller main_Controller, Main_Menu game) throws InterruptedException, IOException {
 		this.setCon(main_Controller);
 		this.highscore.start();
@@ -42,6 +55,13 @@ public class Frenzy_Mode implements ActionListener {
 		}
 	}
 
+	/**
+	 * plays the next game in the list
+	 * 
+	 * @param main_Controller
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	private void playNextGame(Main_Controller main_Controller) throws InterruptedException, IOException {
 		if (games.size() != 0)
 			main_Controller.handleButtonClicked(games.get(0));
@@ -51,14 +71,24 @@ public class Frenzy_Mode implements ActionListener {
 		}
 	}
 
+	/**
+	 * changes the panel back to the main menus
+	 */
 	private void returnMainMenu() {
 		try {
 			Save.save(this.getCon().getPlayersName() + " " + String.valueOf(score));
 		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
 		}
 		this.getCon().frenzyOver();
 	}
 
+	/**
+	 * 
+	 * @param gamePlayed
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	public void gameOver(Base_Game gamePlayed) throws InterruptedException, IOException {
 		this.games.remove(0);
 		this.getCon().getGame().getMainScreen().remove(gamePlayed);
@@ -80,6 +110,9 @@ public class Frenzy_Mode implements ActionListener {
 		this.con = con;
 	}
 
+	/**
+	 * score timer
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == highscore)

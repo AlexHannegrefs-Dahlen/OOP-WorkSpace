@@ -1,7 +1,0 @@
-package arcade.frenzy.view.main.menu;
-
-import javax.swing.JPanel;
-
-public class ImageBackgroundPanel extends JPanel{
-	
-}
