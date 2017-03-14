@@ -1,0 +1,133 @@
+package arcade.frenzy.view.game;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.Random;
+
+import javax.crypto.NullCipher;
+import javax.swing.JOptionPane;
+
+import acade.frenzy.model.object_creation.Object_Creator;
+import arcade.frenzy.model.player.Player;
+import arcade.frenzy.view.main.menu.Main_Menu;
+
+public class LuckNumber7 extends BaseGameMouseList {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private final int playerWidth = 50, playerHeight = 50, sevenWidth = 50, sevenHeight = 50;
+
+	private Object_Creator seven;
+
+	private Random gen = new Random();
+
+	private final Font number;
+
+	public LuckNumber7(Main_Menu game, Player player) {
+		this.setGame(game);
+		this.setPlayer(player);
+		this.getPlayer().setWidth(playerWidth);
+		this.getPlayer().setHeight(playerHeight);
+
+		gen = new Random();
+
+		seven = new Object_Creator(sevenHeight, sevenWidth, gen.nextInt(this.getGame().getMainPanel().getWidth()) - 60,
+				gen.nextInt(this.getGame().getMainPanel().getHeight()) - 60, 0, 0, Color.WHITE, false);
+
+		number = new Font("sans-serif", Font.BOLD, sevenHeight);
+
+		this.setBackground(Color.black);
+		game.getMainScreen().add(this);
+		game.getMainScreen().setVisible(true);
+		this.addMouseListener(this);
+
+		this.addMouseMotionListener(this);
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+
+		g.setColor(Color.white);
+		g.fillOval(this.getPlayer().getxLoc(), this.getPlayer().getyLoc(), this.getPlayer().getWidth(),
+				this.getPlayer().getHeight());
+
+		g.setFont(number);
+		// if (seven.isTaken()) {
+		g.drawString("7", seven.getxLocation(), seven.getyLocation());
+		// }
+		if (super.detectCollisionPlayerOutsideBottomWall(seven) || super.detectCollisionPlayerOutsideTopWall(seven)
+				|| super.detectCollisionPlayerOutsideLeftWall(seven)
+				|| super.detectCollisionPlayerOutsideRightWall(seven)) {
+			// this.gameEnd();
+			super.gameEndScreen("You found the seven!");
+
+			this.getGame().getMainScreen().remove(this);
+			// this.getGame().getMainScreen().update(this.getGame().getMainPanel().getGraphics());
+		}
+
+	}
+
+	private void gameEnd() {
+		if (!this.getGame().isFrenzy()) {
+			JOptionPane.showMessageDialog(this, "You Found The Seven!");
+			super.gameOver(this);
+		} else {
+			try {
+				this.getGame().getCon().getFrenzy().gameOver(this);
+			} catch (InterruptedException | IOException e1) {
+				// TODO: handle exception
+			}
+		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		this.getPlayer().setxLoc(arg0.getX() - this.getPlayer().getWidth() / 2);
+		this.getPlayer().setyLoc(arg0.getY() - this.getPlayer().getHeight() / 2);
+		repaint();
+	}
+
+}

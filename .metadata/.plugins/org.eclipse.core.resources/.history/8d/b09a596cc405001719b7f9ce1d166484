@@ -1,0 +1,13 @@
+package arcade.frenzy.view.game;
+
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+
+import arcade.frenzy.view.main.menu.BackgroundPanel;
+
+public abstract class BaseGameMouseList extends BackgroundPanel
+		implements Game_Interface, MouseListener, ActionListener {
+
+	private static final long serialVersionUID = 1L;
+
+}

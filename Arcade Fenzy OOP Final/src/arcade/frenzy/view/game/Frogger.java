@@ -15,7 +15,7 @@ import acade.frenzy.model.object_creation.Object_Creator;
 import arcade.frenzy.model.player.Player;
 import arcade.frenzy.view.main.menu.Main_Menu;
 
-public class Frogger extends Base_Game {
+public class Frogger extends BaseGameKeyList {
 
 	private Object_Creator topCar, midCar, botCar, start, firstRoad, firstGrass, secondRoad, secondGrass, thirdRoad,
 			finish;

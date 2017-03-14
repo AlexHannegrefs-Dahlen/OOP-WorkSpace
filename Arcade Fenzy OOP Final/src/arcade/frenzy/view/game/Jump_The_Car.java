@@ -20,7 +20,7 @@ import arcade.frenzy.view.main.menu.Main_Menu;
  * 
  * @author Alex Jump the Car game
  */
-public class Jump_The_Car extends Base_Game {
+public class Jump_The_Car extends BaseGameKeyList {
 	private Player player;
 	private final int width = 100, height = 225, Xloc = 650, Yloc = 880, Xvel = 0, Yvel = 25;
 	private Timer gravityTimer = new Timer(30, this), carTimer = new Timer(50, this);
@@ -50,9 +50,11 @@ public class Jump_The_Car extends Base_Game {
 		Car = new Object_Creator(200, 375, 2200, 895, 40, 0, "Jump The car/Car.gif");
 		floor = new Object_Creator(1, 1000, 0, Yloc + height, 0, 0, Color.BLACK);
 		celing = new Object_Creator(25, 1000, 0, floor.getyLocation() - 650, 0, 0, Color.BLACK);
+		
 		this.setBackground(Color.cyan);
 		game.getMainScreen().add(this);
 		game.getMainScreen().setVisible(true);
+		
 		this.addKeyListener(this);
 		gravityTimer.start();
 		carTimer.start();

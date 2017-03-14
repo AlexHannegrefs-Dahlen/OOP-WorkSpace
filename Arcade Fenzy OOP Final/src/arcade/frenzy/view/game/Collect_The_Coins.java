@@ -20,7 +20,7 @@ import arcade.frenzy.view.main.menu.Main_Menu;
  * 
  * @author Alex Collect the coins game
  */
-public class Collect_The_Coins extends Base_Game {
+public class Collect_The_Coins extends BaseGameKeyList {
 
 	private final int WIDTH = 60, HEIGHT = 60, xVEL = 15, yVEL = 15;
 
@@ -145,6 +145,16 @@ public class Collect_The_Coins extends Base_Game {
 	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
+		keyTyped(e);
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			if (!super.detectCollisionPlayerInsideTopWall(this.getGame().getMainPanel().getX(),
 					this.getGame().getMainPanel().getY(), this.getGame().getMainPanel().getWidth(),
@@ -228,17 +238,6 @@ public class Collect_The_Coins extends Base_Game {
 		if (this.checkForWin()) {
 			super.gameEndScreen("You won!");
 		}
-
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		keyPressed(e);
 
 	}
 

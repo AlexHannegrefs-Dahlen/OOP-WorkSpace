@@ -1,6 +1,5 @@
 package arcade.frenzy.view.game;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -19,7 +18,7 @@ import arcade.frenzy.model.player.Player;
  * 
  * @author Alex Tree Climber game
  */
-public class Tree_Climber extends Base_Game {
+public class Tree_Climber extends BaseGameKeyList {
 
 	private Object_Creator tree, branch, flippedBranch, hole;
 
@@ -62,11 +61,9 @@ public class Tree_Climber extends Base_Game {
 
 		squirrel = ImageIO.read(new File("Tree Climber/squirrel.png"));
 
-		this.setBackground(Color.BLACK);
 		game.getMainScreen().add(this);
 		game.getMainScreen().setVisible(true);
 		this.addKeyListener(this);
-
 	}
 
 	/**

@@ -1,0 +1,49 @@
+package arcade.frenzy.view.game;
+
+import java.awt.Image;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+import arcade.frenzy.model.player.Player;
+
+public abstract class BaseGameMouseList extends BaseGame implements MouseListener, MouseMotionListener, ActionListener {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Base Constructor
+	 */
+	public BaseGameMouseList() {
+
+	}
+
+	/**
+	 * Background Image Constructor
+	 * 
+	 * @param image
+	 *            background image
+	 */
+	public BaseGameMouseList(Image image) {
+		super(image);
+	}
+
+	/**
+	 * Background Image Constructor + Player Object
+	 * 
+	 * @param player
+	 *            the player
+	 * @param image
+	 *            the background
+	 */
+	public BaseGameMouseList(Player player, Image image) {
+		super(image);
+		super.setPlayer(player);
+	}
+
+	public void gameEndScreen(String string, LuckNumber7 luckNumber7) {
+		super.gameEndScreen(string);
+		luckNumber7.ui.notifyAll();
+	}
+
+}

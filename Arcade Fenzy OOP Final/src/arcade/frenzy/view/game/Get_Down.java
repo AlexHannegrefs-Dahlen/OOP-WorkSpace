@@ -19,7 +19,7 @@ import arcade.frenzy.view.main.menu.Main_Menu;
  * 
  * @author Alex Get Down Game
  */
-public class Get_Down extends Base_Game {
+public class Get_Down extends BaseGameKeyList {
 	private Timer gravityTimer = new Timer(50, this);
 
 	private Object_Creator TopPlatFormLeft, TopPlatFormRight, MidPlatFormLeft, MidPlatFormRight, BotPlatFormLeft,
